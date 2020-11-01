@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void test2()
+void Lab3_test2()
 {
 	const size_t ARRSIZE = 5;
 	Complex arr[ARRSIZE]
@@ -68,9 +68,11 @@ void test2()
 	}
 	
 	cout << "Did the data match?\t";
+	bool flag = true;
 	for (int i = 0; i < ARRSIZE; i++)
 	{
-		if (compare(arr[i], arr2[i])) cout << "NO" << endl;
-		else cout << "YES" << endl;
+		if (!compare(arr[i], arr2[i])) flag = false;
 	}
+	if (flag) cout << "YES" << endl;
+	else cout << "NO" << endl;
 }

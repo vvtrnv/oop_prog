@@ -234,6 +234,7 @@ ofstream& operator << (ofstream& os, Complex& p)
 
 ifstream& operator >> (ifstream& is, Complex& p)
 {
+	char temp[40];
 	if (p.valid && p.image && p.expression)
 	{
 		delete p.valid;
@@ -243,7 +244,10 @@ ifstream& operator >> (ifstream& is, Complex& p)
 	p.valid = new double;
 	p.image = new double;
 	
-	is >> *(p.valid) >> *(p.image) >> *(p.expression);
+	is >> *(p.valid) >> *(p.image) >> temp;
+	int len = strlen(temp) + 1;
+	p.expression = new char[len];
+	strcpy_s(p.expression, len, temp);
 	return is;
 }
 
