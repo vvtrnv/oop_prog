@@ -1,8 +1,13 @@
 ﻿#pragma once
 #include <iostream>
+#include <sstream>
+#include <fstream>
 #include "Complex.h"
 
+
 using namespace std;
+
+const int SIZE = 40;
 
 Complex::Complex()// Стандартный конструктор класса.
 {
@@ -116,9 +121,9 @@ void Complex::multiply(const Complex& first, const Complex& second)// Умнож
 	*(this->image) = *(first.image) * *(second.valid) + *(first.valid) * *(second.image);
 }
 
-bool Complex::compare(const Complex& first, const Complex& second)
+bool compare(const Complex& first, const Complex& second)
 {
-	count++;
+	Complex::count++;
 
 	if (*(first.valid) == *(second.valid) && *(first.image) == *(second.image))
 		return true;
@@ -138,6 +143,108 @@ void Complex::compare_with(const double& value_valid, const double& value_image)
 	{
 		cout << "The result didn't match!\n\n\n";
 	}
+}
+
+
+ostream& operator << (ostream& os, Complex& p)
+{
+	os << "valid = " << *p.valid << "\timage = " << *p.image << "\t Expression: (" << p.expression << ")"<< endl;
+	return os;
+}
+
+istream& operator >> (istream& is, Complex& p)
+{
+	char strValid[SIZE], strImage[SIZE], strExpression[SIZE];
+
+	if (p.valid && p.image && p.expression)
+	{
+		delete p.valid;
+		delete p.image;
+		delete p.expression;
+	}
+	// Для действительной части.
+	while (1)
+	{
+		cout << "Input: valid" << endl;
+		cin.getline(strValid, SIZE);
+		p.valid = new double;
+
+		// Убеждаемся, что каждый символ является цифрой.
+		bool flag = true;
+		for (int i = 0; strValid[i]; i++)
+		{
+			if (!isdigit(strValid[i])) // Проверка на наличие букв,символов, пробелов...
+			{
+				flag = false; // Если нашёлся хотябы один символ, не являющийся цифрой, то flag = false.
+				break;
+			}
+		}
+		if (!flag)
+			continue;
+
+		stringstream strStream; // Преобразуем из формата строки в int.
+		strStream << strValid;  //
+		strStream >> *p.valid;  //
+
+		break;
+	}
+
+	// Для мнимой части.
+	while (1)
+	{
+		cout << "Input: Image" << endl;
+		cin.getline(strImage, SIZE);
+		p.image = new double;
+
+		// Убеждаемся, что каждый символ является цифрой.
+		bool flag = true;
+		for (int i = 0; strImage[i]; i++)
+		{
+			if (!isdigit(strImage[i])) // Проверка на наличие букв,символов, пробелов...
+			{
+				flag = false; // Если нашёлся хотябы один символ, не являющийся цифрой, то flag = false.
+				break;
+			}
+		}
+		if (!flag)
+			continue;
+
+		stringstream strStream; // Преобразуем из формата строки в int.
+		strStream << strImage;  //
+		strStream >> *p.image;  //
+
+		break;
+	}
+
+	// Для строкового представления.
+	cout << "Input: Expression(example: 5+10i)" << endl;
+	cin >> strExpression;
+	size_t len = strlen(strExpression) + 1;
+	p.expression = new char[len];
+	strcpy_s(p.expression, len, strExpression);
+
+	return is;
+}
+
+ofstream& operator << (ofstream& os, Complex& p)
+{
+	os << *p.valid << " " << *p.image << " " << *p.expression << "\n";
+	return os;
+}
+
+ifstream& operator >> (ifstream& is, Complex& p)
+{
+	if (p.valid && p.image && p.expression)
+	{
+		delete p.valid;
+		delete p.image;
+		delete p.expression;
+	}
+	p.valid = new double;
+	p.image = new double;
+	
+	is >> *(p.valid) >> *(p.image) >> *(p.expression);
+	return is;
 }
 
 int Complex::count = 0;// Начальное значение.

@@ -1,9 +1,11 @@
 ﻿#include <iostream>
 #include "Complex.h"
+#include "Test_for_3lab.h"
 using namespace std;
 
+const char PATH[12] = "lab3.txt";
 
-void test1(bool result)
+void Lab1_test1(bool result)
 {
 	cout << "===================Test #1===================\n";
 
@@ -42,7 +44,7 @@ void test1(bool result)
 
 	// Сравнивание.
 	cout << "---Comparison---\n";
-	result = res_test1.compare(ex1_test1, ex2_test1);
+	result = compare(ex1_test1, ex2_test1);
 	if (result)
 	{
 		cout << ex1_test1.to_String(); cout << " = "; cout << ex2_test1.to_String(); cout << endl;
@@ -53,9 +55,10 @@ void test1(bool result)
 	}
 
 	res_test1.showNumber();
+
 } // вызвалось 3 деструктора для объектов: ex1_test1 ; ex2_test1 ; res_test1 . Память освобождена.
 
-void test2(bool result)
+void Lab1_test2(bool result)
 {
 	cout << "\n===================Test #2===================\n";
 
@@ -94,7 +97,7 @@ void test2(bool result)
 
 	// Сравнивание.
 	cout << "---Comparison---\n";
-	result = res_test2.compare(ex1_test2, ex2_test2);
+	result = compare(ex1_test2, ex2_test2);
 	if (result)
 	{
 		cout << ex1_test2.to_String(); cout << " = "; cout << ex2_test2.to_String(); cout << endl;
@@ -107,7 +110,7 @@ void test2(bool result)
 	res_test2.showNumber();
 } // вызвалось 3 деструктора для объектов: ex1_test2 ; ex2_test2 ; res_test2 . Память освобождена.
 
-void test3(bool result)
+void Lab1_test3(bool result)
 {
 	cout << "\n===================Test #3===================\n";
 
@@ -146,7 +149,7 @@ void test3(bool result)
 
 	// Сравнивание.
 	cout << "---Comparison---\n";
-	res_test3.compare(ex1_test3, ex2_test3);
+	result = compare(ex1_test3, ex2_test3);
 	if (result)
 	{
 		cout << ex1_test3.to_String(); cout << " = "; cout << ex2_test3.to_String(); cout << endl;
@@ -159,7 +162,7 @@ void test3(bool result)
 	res_test3.showNumber();
 } // вызвалось 3 деструктора для объектов: ex1_test3 ; ex2_test3 ; res_test3 . Память освобождена.
 
-void test4(bool result)
+void Lab1_test4(bool result)
 {
 	cout << "\n===================Test #4===================\n";
 
@@ -198,7 +201,7 @@ void test4(bool result)
 
 	// Сравнивание.
 	cout << "---Comparison---\n";
-	result = res_test4.compare(ex1_test4, ex2_test4);
+	result = compare(ex1_test4, ex2_test4);
 	if (result)
 	{
 		cout << ex1_test4.to_String(); cout << " = "; cout << ex2_test4.to_String(); cout << endl;
@@ -211,7 +214,7 @@ void test4(bool result)
 	res_test4.showNumber();
 } // вызвалось 3 деструктора для объектов: ex1_test4 ; ex2_test4 ; res_test4 . Память освобождена.
 
-void test5(bool result)
+void Lab1_test5(bool result)
 {
 	cout << "\n===================Test #5===================\n";
 
@@ -250,7 +253,7 @@ void test5(bool result)
 
 	// Сравнивание.
 	cout << "---Comparison---\n";
-	result = res_test5.compare(ex1_test5, ex2_test5);
+	result = compare(ex1_test5, ex2_test5);
 	if (result)
 	{
 		cout << ex1_test5.to_String(); cout << " = "; cout << ex2_test5.to_String(); cout << endl;
@@ -265,21 +268,25 @@ void test5(bool result)
 
 int main()
 {
+	// Лабораторная работа №1.Тесты.
 	bool result = true;
 	// ---------Вычисляем выражения. Тест 1.----------
-	test1(result);
+	Lab1_test1(result);
 
 	// ----------Вычисляем выражения. Тест 2.-----------
-	test2(result);
+	Lab1_test2(result);
 
 	// ----------Вычисляем выражения. Тест 3.-----------
-	test3(result);
+	Lab1_test3(result);
 
 	// ----------Вычисляем выражения. Тест 4.-----------
-	test4(result);
+	Lab1_test4(result);
 
 	// ----------Вычисляем выражения. Тест 5.-----------
-	test5(result);
+	Lab1_test5(result);
+
+	// Лабораторная работа №3.Тесты.
+
 
 	cin.get();
 	return 0;
