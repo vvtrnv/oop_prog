@@ -57,19 +57,16 @@ char* Complex::toStringExpression()// Метод вывода на экран д
 	return expression;
 }
 
-//void Complex::to_StrExpression() // Не работает с объектами класса. Выводит не пойми что :(
-//{
-//	char expr[100];
-//	int j; // Подсчёт кол-ва символов.
-//	j = sprintf_s(expr, 100, "( ");
-//	j += sprintf_s(expr + j, 100 - j, "%g", *(this->valid));
-//	j += sprintf_s(expr + j, 100 - j, " + ");
-//	j += sprintf_s(expr + j, 100 - j, "%g", *(this->image));
-//	j += sprintf_s(expr + j, 100 - j, "i )");
-//	int len = strlen(expr) + 1;
-//	this->expression = new char[len];
-//	strcpy_s(this->expression, len, expr);
-//}
+void Complex::to_StrExpression() // Не работает с объектами класса. Выводит не пойми что :(
+{
+	char expr[100];
+	int j; // Подсчёт кол-ва символов.
+	sprintf_s(expr, 100, "(%f + %f i)", this->valid, this->image);
+
+	int len = strlen(expr) + 1;
+	this->expression = new char[len];
+	strcpy_s(this->expression, len, expr);
+}
 
 void Complex::showResult()// Функция класса "Вывод на экран результата"
 {

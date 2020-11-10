@@ -16,7 +16,7 @@ public:
 
 	// Функции класса.
 	char* toStringExpression();// Вывод на экран выражения.
-	//void to_StrExpression(); // Собрать поле объекта expression.
+	void to_StrExpression(); // Собрать поле объекта expression.
 	void showResult();// Вывод на экран результата.
 	void showNumber();// Кол-во выражений.
 	void summarize(const Complex& first, const Complex& second);// Суммирование.
