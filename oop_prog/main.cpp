@@ -10,9 +10,9 @@ using namespace std;
 int main()
 {
 	//// Лабораторная работа №1.Тесты.
-	bool result = true;
+	//bool result = true;
 	//// ---------Вычисляем выражения. Тест 1.----------
-	Lab1_test1(result);
+	//Lab1_test1(result);
 
 	//// ----------Вычисляем выражения. Тест 2.-----------
 	//Lab1_test2(result);
@@ -27,7 +27,7 @@ int main()
 	//Lab1_test5(result);
 
 	// Лабораторная работа №3.Тесты.
-	//Lab3_test2();
+	Lab3_test2();
 	
 
 	cin.get();

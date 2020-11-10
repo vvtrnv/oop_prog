@@ -43,6 +43,7 @@ Complex::Complex(const Complex& other)// Конструктор копирова
 Complex::~Complex()
 {
 	delete[] expression;
+	expression = nullptr;
 }
 
 
@@ -156,9 +157,9 @@ Complex* resizeArr(const Complex* oldArr, size_t& size)// Меняет разм�
 {
 	Complex* newArr = new Complex[size+1];
 	memcpy(newArr, oldArr, sizeof(Complex) * size);
-	if(size != 0) delete[] oldArr;
 	size++;
-
+	
+	delete[] oldArr;
 	return newArr;
 }
 
@@ -241,11 +242,12 @@ ofstream& operator << (ofstream& os, Complex& p) // Запись в файл.
 
 ifstream& operator >> (ifstream& is, Complex& p) // Чтение из файла.
 {
-	if (p.expression)
+	if (*(p.expression))
 	{
 		delete p.expression;
 	}
-	p.expression = new char;
+	p.expression = new char[10];
+	strcpy_s(p.expression, 10, "0 + 0");
 
 	is >> p.valid >> p.image;	//>> temp;
 	
