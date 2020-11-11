@@ -3,7 +3,7 @@
 #include <sstream>
 #include <fstream>
 #include <stdio.h>
-#include <cstdio>
+//#include <cstdio>
 #include "Complex.h"
 
 
@@ -148,16 +148,6 @@ void Complex::compare_with(const double& value_valid, const double& value_image)
 	{
 		cout << "The result didn't match!\n\n\n";
 	}
-}
-
-Complex* resizeArr(const Complex* oldArr, size_t& size)// Меняет размер динамического массива.
-{
-	Complex* newArr = new Complex[size+1];
-	memcpy(newArr, oldArr, sizeof(Complex) * size);
-	size++;
-	
-	delete[] oldArr;
-	return newArr;
 }
 
 ostream& operator << (ostream& os, Complex& p) // Вывод на экран.

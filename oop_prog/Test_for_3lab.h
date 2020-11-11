@@ -5,6 +5,19 @@
 
 using namespace std;
 
+void resizeArr(Complex*& oldArr, size_t& size)// Меняет размер динамического массива.
+{
+	Complex* newArr = new Complex[size + 1];
+	for (int i = 0; i < size; i++)
+	{
+		newArr[i] = oldArr[i];
+	}
+	delete[] oldArr;
+
+	oldArr = newArr;
+	size++;
+}
+
 void Lab3_test1()
 {
 
@@ -29,7 +42,7 @@ void Lab3_test2()
 		cout << "File is open! Download objects..." << endl;
 		for (int i = 0; !fin.eof(); i++)
 		{
-			if (i >= size) arr = resizeArr(arr, size);
+			if (i >= size) resizeArr(arr, size);
 			fin >> arr[i];
 		}
 	}
@@ -89,6 +102,17 @@ void Lab3_test2()
 	}
 	if (flag) cout << "YES" << endl;
 	else cout << "NO" << endl;
+
+	//Complex a[2]
+	//{
+	//	Complex(1,2,"1+2i"),
+	//	Complex(3,4,"3+4iii")
+	//};
+	//Complex copy[2];
+	//for (int i = 0; i < 2; i++)
+	//{
+	//	a[i] = copy[i];
+	//}
 }
 
 void Lab3_test3()
@@ -111,7 +135,7 @@ void Lab3_test3()
 		cout << "File is open! Download objects..." << endl;
 		for (int i = 0; !fin.eof() && i < size; i++)
 		{
-			if (i >= size) arr = resizeArr(arr, size);
+			if (i >= size) resizeArr(arr, size);
 			fin >> arr[i];
 		}
 	}

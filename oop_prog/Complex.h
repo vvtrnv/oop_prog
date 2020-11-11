@@ -27,7 +27,6 @@ public:
 	
 
 	friend bool compare(const Complex& first, const Complex& second);// Сравнение.
-	friend Complex* resizeArr(const Complex* oldArr, size_t& size); // Меняем размер дин.массива.
 	
 	friend ostream& operator << (ostream& os, Complex& p); // Перегруженный оператор вывода на экран.
 	friend istream& operator >> (istream& is, Complex& p); // Перегруженный оператор ввода из консоли.
