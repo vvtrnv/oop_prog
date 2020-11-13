@@ -52,15 +52,6 @@ Complex::~Complex()
 	expression = nullptr;
 }
 
-void to_String(char* str)
-{
-
-}
-
-void Complex::showNumber()// Вывод кол-ва выражений.
-{
-	cout << "Number of expressions = " << count << endl;
-}
 
 char* Complex::getExpression()// Метод вывода на экран двух комплексных чисел.
 {
@@ -104,6 +95,11 @@ void Complex::showResult()// Функция класса "Вывод на экр
 		cout << "0\n" << endl;
 }
 
+void Complex::showNumber()// Вывод кол-ва выражений.
+{
+	cout << "Number of expressions = " << count << endl;
+}
+
 void Complex::summarize(const Complex& first, const Complex& second) // Функция класса "Суммирование".
 {
 	count++;
@@ -141,15 +137,6 @@ void Complex::multiply(const Complex& first, const Complex& second)// Умнож
 	this->image = first.image * second.valid + first.valid * second.image;
 }
 
-bool compare(const Complex& first, const Complex& second)
-{
-	Complex::count++;
-
-	if (first.valid == second.valid && first.image == second.image)
-		return true;
-	else return false;
-}
-
 void Complex::compare_with(const double& value_valid, const double& value_image)
 {
 	const double EPS = 1e-3;// Константа для сравнения
@@ -164,6 +151,21 @@ void Complex::compare_with(const double& value_valid, const double& value_image)
 		cout << "The result didn't match!\n\n\n";
 	}
 }
+
+bool compare(const Complex& first, const Complex& second)
+{
+	Complex::count++;
+
+	if (first.valid == second.valid && first.image == second.image)
+		return true;
+	else return false;
+}
+
+void to_String(const char* str)
+{
+	cout << str << endl;
+}
+
 
 Complex& Complex::operator = (const Complex& other)
 {
@@ -195,7 +197,7 @@ istream& operator >> (istream& is, Complex& p) // Записывание дан�
 	// Для действительной части.
 	while (1)
 	{
-		cout << "Input: valid" << endl;
+		to_String("Input Valid:");
 		cin.getline(strValid, SIZE);
 
 		// Убеждаемся, что каждый символ является цифрой.
@@ -222,7 +224,7 @@ istream& operator >> (istream& is, Complex& p) // Записывание дан�
 	// Для мнимой части.
 	while (1)
 	{
-		cout << "Input: Image" << endl;
+		to_String("Input Image:");
 		cin.getline(strImage, SIZE);
 
 		// Убеждаемся, что каждый символ является цифрой.
@@ -243,10 +245,9 @@ istream& operator >> (istream& is, Complex& p) // Записывание дан�
 		strStream << strImage;  //
 		strStream >> p.image;  //
 
-		p.to_StrExpression();
-
 		break;
 	}
+	p.to_StrExpression();
 
 	return is;
 }

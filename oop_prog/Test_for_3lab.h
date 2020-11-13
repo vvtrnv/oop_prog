@@ -23,6 +23,7 @@ void Output_obj(Complex*& Arr, const int& sz)
 	cout << "Output objects\n";
 	for (int i = 0; i < sz; i++) cout << "Object #" << i + 1 << "\t" << Arr[i];
 }
+
 void Lab3_test1()
 {
 	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TEST #1 IN/OUT CONCOLE~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
@@ -86,8 +87,8 @@ bool Lab3_test2()
 		for (int i = 0; !fin.eof(); i++)
 		{
 			if (i == size) resizeArr(arr, size);
-			fin >> arr[i];
 			if (fin.eof()) break;
+			fin >> arr[i];
 		}
 		size--;
 	}

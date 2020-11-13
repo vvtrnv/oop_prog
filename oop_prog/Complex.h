@@ -7,9 +7,9 @@ class Complex
 {
 public:
 	// Конструкторы класса.
+	Complex();// Стандартный конструктор класса.
 	Complex(double value_valid, double value_complex, const char* appointExpression);// Конструктор класса.
 	Complex(double value_valid, double value_complex); // Конструктор с 2мя принимаемыми параметрами.
-	Complex();// Стандартный конструктор класса.
 	Complex(const Complex& other);// Конструктор копирования.
 
 	// Деструктор класса.
@@ -28,8 +28,9 @@ public:
 	
 
 	friend bool compare(const Complex& first, const Complex& second);// Сравнение.
+	friend void to_String(char* str); // Строковое представление.
 	
-	Complex& operator = (const Complex& other);
+	Complex& operator = (const Complex& other); // Оператор присваивания.
 	
 	friend ostream& operator << (ostream& os, Complex& p); // Перегруженный оператор вывода на экран.
 	friend istream& operator >> (istream& is, Complex& p); // Перегруженный оператор ввода из консоли.
