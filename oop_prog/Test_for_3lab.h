@@ -87,6 +87,7 @@ bool Lab3_test2()
 		{
 			if (i == size) resizeArr(arr, size);
 			fin >> arr[i];
+			if (fin.eof()) break;
 		}
 		size--;
 	}
