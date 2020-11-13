@@ -2,14 +2,12 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
-#include <stdio.h>
-//#include <cstdio>
+#include <cstdio>
 #include "Complex.h"
+#include "locale.h" // Для предотвращения ошибки с русскими буквами при некорректном вводе.
 
 
 using namespace std;
-
-const int SIZE = 40;
 
 Complex::Complex()// Стандартный конструктор класса.
 {
@@ -20,15 +18,23 @@ Complex::Complex()// Стандартный конструктор класса.
 	strcpy_s(expression, 10, "0 + 0");
 }
 
-Complex::Complex(double value_valid, double value_complex, const char* appointExpression)// Конструктор класса.
+Complex::Complex(double value_valid, double value_image, const char* appointExpression)// Конструктор класса.
 {
 	
 	valid = value_valid;
-	image = value_complex;
+	image = value_image;
 
 	int len = strlen(appointExpression) + 1;
 	expression = new char[len];
 	strcpy_s(expression, len, appointExpression);
+}
+
+Complex::Complex(double value_valid, double value_image)
+{
+	this->valid = value_valid;
+	this->image = value_image;
+	this->expression = nullptr;
+	this->to_StrExpression();
 }
 
 Complex::Complex(const Complex& other)// Конструктор копирования.
@@ -46,13 +52,17 @@ Complex::~Complex()
 	expression = nullptr;
 }
 
+void to_String(char* str)
+{
+
+}
 
 void Complex::showNumber()// Вывод кол-ва выражений.
 {
 	cout << "Number of expressions = " << count << endl;
 }
 
-char* Complex::toStringExpression()// Метод вывода на экран двух комплексных чисел.
+char* Complex::getExpression()// Метод вывода на экран двух комплексных чисел.
 {
 	return expression;
 }
@@ -60,9 +70,14 @@ char* Complex::toStringExpression()// Метод вывода на экран д
 void Complex::to_StrExpression() // Не работает с объектами класса. Выводит не пойми что :(
 {
 	char expr[100];
-	int j; // Подсчёт кол-ва символов.
 	sprintf_s(expr, 100, "(%f + %f i)", this->valid, this->image);
+	
+	if (this->expression)
+	{
 
+		delete[] this->expression;
+		this->expression = nullptr;
+	}
 	int len = strlen(expr) + 1;
 	this->expression = new char[len];
 	strcpy_s(this->expression, len, expr);
@@ -150,20 +165,33 @@ void Complex::compare_with(const double& value_valid, const double& value_image)
 	}
 }
 
+Complex& Complex::operator = (const Complex& other)
+{
+	int len;
+	this->valid = other.valid;
+	this->image = other.image;
+
+	delete[] this->expression;
+	len = strlen(other.expression) + 1;
+	this->expression = new char[len];
+	strcpy_s(this->expression, len, other.expression);
+
+	return *this;
+}
+
 ostream& operator << (ostream& os, Complex& p) // Вывод на экран.
 {
-	os << "valid = " << p.valid << "\timage = " << p.image /*<< "\t Expression: (" << p.expression << ")"*/<< endl;
+	os << "valid = " << p.valid << "\timage = " << p.image << "\texpression = "  << p.expression << endl;
 	return os;
 }
 
 istream& operator >> (istream& is, Complex& p) // Записывание данных с консоли.
 {
+	const int SIZE = 40;
 	char strValid[SIZE], strImage[SIZE], strExpression[SIZE];
+	setlocale(LC_ALL, "rus"); // Чтобы предотвратить вылет программы при некорректном вводе. русских символов.
+	setlocale(LC_NUMERIC, "C"); // для stringstream, чтобы вместе запятой в дробном числе показывал точку.
 
-	if (p.expression)
-	{
-		delete p.expression;
-	}
 	// Для действительной части.
 	while (1)
 	{
@@ -176,6 +204,7 @@ istream& operator >> (istream& is, Complex& p) // Записывание дан�
 		{
 			if (!isdigit(strValid[i])) // Проверка на наличие букв,символов, пробелов...
 			{
+				if (strValid[i] == '.') continue;
 				flag = false; // Если нашёлся хотябы один символ, не являющийся цифрой, то flag = false.
 				break;
 			}
@@ -202,6 +231,7 @@ istream& operator >> (istream& is, Complex& p) // Записывание дан�
 		{
 			if (!isdigit(strImage[i])) // Проверка на наличие букв,символов, пробелов...
 			{
+				if (strImage[i] == '.') continue;
 				flag = false; // Если нашёлся хотябы один символ, не являющийся цифрой, то flag = false.
 				break;
 			}
@@ -213,7 +243,7 @@ istream& operator >> (istream& is, Complex& p) // Записывание дан�
 		strStream << strImage;  //
 		strStream >> p.image;  //
 
-		p.expression = new char[10];
+		p.to_StrExpression();
 
 		break;
 	}
@@ -223,21 +253,15 @@ istream& operator >> (istream& is, Complex& p) // Записывание дан�
 
 ofstream& operator << (ofstream& os, Complex& p) // Запись в файл.
 {
-	os << p.valid << " " << p.image << endl;
+	os << p.valid << " " << p.image << "\n";
 	return os;
 }
 
 ifstream& operator >> (ifstream& is, Complex& p) // Чтение из файла.
 {
-	if (*(p.expression))
-	{
-		delete p.expression;
-	}
-	p.expression = new char[10];
-	strcpy_s(p.expression, 10, "0 + 0");
+	is >> p.valid >> p.image;
+	p.to_StrExpression();
 
-	is >> p.valid >> p.image;	//>> temp;
-	
 	return is;
 }
 
@@ -250,15 +274,11 @@ ofstream& operator < (ofstream& os, const Complex& obj)
 
 ifstream& operator > (ifstream& is, Complex& obj)
 {
-	if (obj.expression)
-	{
-
-		delete obj.expression;
-	}
 	obj.expression = new char;
 
 	is.read((char*)&obj.valid, sizeof(double));
 	is.read((char*)&obj.image, sizeof(double));
+	obj.to_StrExpression();
 
 	return is;
 }

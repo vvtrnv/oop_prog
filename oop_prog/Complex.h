@@ -8,6 +8,7 @@ class Complex
 public:
 	// Конструкторы класса.
 	Complex(double value_valid, double value_complex, const char* appointExpression);// Конструктор класса.
+	Complex(double value_valid, double value_complex); // Конструктор с 2мя принимаемыми параметрами.
 	Complex();// Стандартный конструктор класса.
 	Complex(const Complex& other);// Конструктор копирования.
 
@@ -15,7 +16,7 @@ public:
 	~Complex();
 
 	// Функции класса.
-	char* toStringExpression();// Вывод на экран выражения.
+	char* getExpression();// Получить expression объекта.
 	void to_StrExpression(); // Собрать поле объекта expression.
 	void showResult();// Вывод на экран результата.
 	void showNumber();// Кол-во выражений.
@@ -27,6 +28,8 @@ public:
 	
 
 	friend bool compare(const Complex& first, const Complex& second);// Сравнение.
+	
+	Complex& operator = (const Complex& other);
 	
 	friend ostream& operator << (ostream& os, Complex& p); // Перегруженный оператор вывода на экран.
 	friend istream& operator >> (istream& is, Complex& p); // Перегруженный оператор ввода из консоли.
