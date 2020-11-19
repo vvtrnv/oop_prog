@@ -53,14 +53,14 @@ Complex::~Complex()
 }
 
 
-char* Complex::getExpression()// Метод вывода на экран двух комплексных чисел.
+char* Complex::to_String()// Получить строковое представление.
 {
 	return expression;
 }
 
 void Complex::to_StrExpression() // Не работает с объектами класса. Выводит не пойми что :(
 {
-	char expr[100];
+	char expr[255];
 	sprintf_s(expr, 100, "(%f + %f i)", this->valid, this->image);
 	
 	if (this->expression)
@@ -161,11 +161,20 @@ bool compare(const Complex& first, const Complex& second)
 	else return false;
 }
 
-void to_String(const char* str)
+ofstream& writingBinary(ofstream& os, const Complex& obj)
 {
-	cout << str << endl;
+	os.write((char*)&obj.valid, sizeof(double));
+	os.write((char*)&obj.image, sizeof(double));
+	return os;
 }
 
+ifstream& readingBinary(ifstream& is, Complex& obj)
+{
+	is.read((char*)&obj.valid, sizeof(double));
+	is.read((char*)&obj.image, sizeof(double));
+	obj.to_StrExpression();
+	return is;
+}
 
 Complex& Complex::operator = (const Complex& other)
 {
@@ -189,16 +198,32 @@ ostream& operator << (ostream& os, Complex& p) // Вывод на экран.
 
 istream& operator >> (istream& is, Complex& p) // Записывание данных с консоли.
 {
-	const int SIZE = 40;
-	char strValid[SIZE], strImage[SIZE], strExpression[SIZE];
+	int size = 100;
+	char* strValid = new char[size];
+	char* strImage = new char[size];
 	setlocale(LC_ALL, "rus"); // Чтобы предотвратить вылет программы при некорректном вводе. русских символов.
 	setlocale(LC_NUMERIC, "C"); // для stringstream, чтобы вместе запятой в дробном числе показывал точку.
 
 	// Для действительной части.
 	while (1)
 	{
-		to_String("Input Valid:");
-		cin.getline(strValid, SIZE);
+		char c;
+		int i = 0;
+		while (is.get(c))
+		{
+			if (c == '\n') break;
+			if (i >= size - 1)
+			{
+				size = 2 * size;
+				char* newStr = new char[size];
+				strcpy_s(newStr, size, strValid);
+				delete[] strValid;
+				strValid = newStr;
+			}
+			strValid[i] = c;
+			strValid[i + 1] = '\0';
+			i++;
+		}
 
 		// Убеждаемся, что каждый символ является цифрой.
 		bool flag = true;
@@ -224,8 +249,24 @@ istream& operator >> (istream& is, Complex& p) // Записывание дан�
 	// Для мнимой части.
 	while (1)
 	{
-		to_String("Input Image:");
-		cin.getline(strImage, SIZE);
+		// Считываем посимвольно, если не хватает размера - увеличиваем в 2 раза.
+		char c;
+		int i = 0;
+		while (is.get(c))
+		{
+			if (c == '\n') break;
+			if (i >= size - 1)
+			{
+				size = 2 * size;
+				char* newStr = new char[size];
+				strcpy_s(newStr, size, strImage);
+				delete[] strImage;
+				strImage = newStr;
+			}
+			strImage[i] = c;
+			strImage[i + 1] = '\0';
+			i++;
+		}
 
 		// Убеждаемся, что каждый символ является цифрой.
 		bool flag = true;
@@ -262,24 +303,6 @@ ifstream& operator >> (ifstream& is, Complex& p) // Чтение из файла
 {
 	is >> p.valid >> p.image;
 	p.to_StrExpression();
-
-	return is;
-}
-
-ofstream& operator < (ofstream& os, const Complex& obj)
-{
-	os.write((char*)&obj.valid, sizeof(double));
-	os.write((char*)&obj.image, sizeof(double));
-	return os;
-}
-
-ifstream& operator > (ifstream& is, Complex& obj)
-{
-	obj.expression = new char;
-
-	is.read((char*)&obj.valid, sizeof(double));
-	is.read((char*)&obj.image, sizeof(double));
-	obj.to_StrExpression();
 
 	return is;
 }

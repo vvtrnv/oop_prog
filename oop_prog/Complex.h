@@ -16,7 +16,7 @@ public:
 	~Complex();
 
 	// Функции класса.
-	char* getExpression();// Получить expression объекта.
+	char* to_String();// Получить expression объекта.
 	void to_StrExpression(); // Собрать поле объекта expression.
 	void showResult();// Вывод на экран результата.
 	void showNumber();// Кол-во выражений.
@@ -28,16 +28,15 @@ public:
 	
 
 	friend bool compare(const Complex& first, const Complex& second);// Сравнение.
-	friend void to_String(char* str); // Строковое представление.
-	
+	friend ofstream& writingBinary(ofstream& os, const Complex& obj); // Запись в бинарный файл.
+	friend ifstream& readingBinary(ifstream& is, Complex& obj); // Чтение из бинарного файла
+
 	Complex& operator = (const Complex& other); // Оператор присваивания.
 	
 	friend ostream& operator << (ostream& os, Complex& p); // Перегруженный оператор вывода на экран.
 	friend istream& operator >> (istream& is, Complex& p); // Перегруженный оператор ввода из консоли.
-	friend ofstream& operator << (ofstream& of, Complex& p); // Пергруженный оператор для записи в txt файл.
+	friend ofstream& operator << (ofstream& of, Complex& p); // Перегруженный оператор для записи в txt файл.
 	friend ifstream& operator >> (ifstream& is, Complex& p); // Перегруженный оператор для считывания из txt файла.
-	friend ofstream& operator < (ofstream& os, const Complex& obj); // Перегруженный оператор для записи в bin файл.
-	friend ifstream& operator > (ifstream& is, Complex& obj); // Перегруженный оператор для считывания из bin файла.
 
 private:
 	double valid;// Дейстивительная часть числа.

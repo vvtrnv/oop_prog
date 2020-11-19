@@ -13,7 +13,7 @@ void resizeArr(Complex*& oldArr, int& size)// Меняет размер дина
 		newArr[i] = oldArr[i];
 	}
 
-	if(size == 0) delete[] oldArr;
+	delete[] oldArr;
 	size++;
 	oldArr = newArr;
 }
@@ -179,7 +179,7 @@ bool Lab3_test3()
 		for (int i = 0; !fin.eof() && i < size; i++)
 		{
 			if (i == size) resizeArr(arr, size);
-			fin > arr[i];
+			readingBinary(fin, arr[i]);
 		}
 	}
 	fin.close();
@@ -197,7 +197,7 @@ bool Lab3_test3()
 		cout << "File is open! Writing to a file..." << endl;
 		for (int i = 0; i < size; i++)
 		{
-			fout < arr[i];
+			writingBinary(fout, arr[i]);
 		}
 	}
 	fout.close();
@@ -216,7 +216,7 @@ bool Lab3_test3()
 		cout << "File is open! Download objects..." << endl;
 		for (int i = 0; !fout.eof() && i < size; i++)
 		{
-			fin > arr2[i];
+			readingBinary(fin, arr2[i]);
 		}
 	}
 	fin.close();

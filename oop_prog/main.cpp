@@ -20,11 +20,11 @@ int main()
 	// Лабораторная работа №3.Тесты.
 	Lab3_test1(); cout << "~Test#1 Successfully!\n\n";
 
-	if (Lab3_test2())cout << "~Test #2 Successfully!\n\n";
-	else cout << "Error in test#2\n\n";
+	//if (Lab3_test2())cout << "~Test #2 Successfully!\n\n";
+	//else cout << "Error in test#2\n\n";
 
-	if (Lab3_test3())cout << "~Test #3 Successfully!\n\n";
-	else cout << "Error in test#3\n\n";
+	//if (Lab3_test3())cout << "~Test #3 Successfully!\n\n";
+	//else cout << "Error in test#3\n\n";
 	
 
 	cin.get();
