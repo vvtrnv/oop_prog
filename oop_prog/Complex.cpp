@@ -58,7 +58,7 @@ char* Complex::to_String()// Получить строковое предста�
 	return expression;
 }
 
-void Complex::to_StrExpression() // Не работает с объектами класса. Выводит не пойми что :(
+void Complex::to_StrExpression() 
 {
 	char expr[255];
 	sprintf_s(expr, 100, "(%f + %f i)", this->valid, this->image);
