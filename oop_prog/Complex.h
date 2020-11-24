@@ -36,12 +36,12 @@ public:
 	friend ofstream& operator << (ofstream& of, Complex& p); // Перегруженный оператор для записи в txt файл.
 	friend ifstream& operator >> (ifstream& is, Complex& p); // Перегруженный оператор для считывания из txt файла.
 
-	double get_Value();
+
+	double get_Valid();
 	double get_Image();
 	char* to_String();// Получить expression объекта.
-
-	void set_Value();
-	void set_Image();
+	void set_Valid(const double& var);
+	void set_Image(const double& var);
 	void to_StrExpression(); // Собрать поле объекта expression.
 
 private:

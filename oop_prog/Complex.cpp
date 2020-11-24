@@ -53,27 +53,6 @@ Complex::~Complex()
 }
 
 
-char* Complex::to_String()// Получить строковое представление.
-{
-	return expression;
-}
-
-void Complex::to_StrExpression() 
-{
-	char expr[255];
-	sprintf_s(expr, 100, "(%f + %f i)", this->valid, this->image);
-	
-	if (this->expression)
-	{
-
-		delete[] this->expression;
-		this->expression = nullptr;
-	}
-	int len = strlen(expr) + 1;
-	this->expression = new char[len];
-	strcpy_s(this->expression, len, expr);
-}
-
 void Complex::showResult()// Функция класса "Вывод на экран результата"
 {
 	cout.precision(3);
@@ -160,6 +139,7 @@ bool compare(const Complex& first, const Complex& second)
 		return true;
 	else return false;
 }
+
 
 ofstream& writingBinary(ofstream& os, const Complex& obj)
 {
@@ -305,6 +285,50 @@ ifstream& operator >> (ifstream& is, Complex& p) // Чтение из файла
 	p.to_StrExpression();
 
 	return is;
+}
+
+
+double Complex::get_Valid()
+{
+	return this->valid;
+}
+
+double Complex::get_Image()
+{
+	return this->image;
+}
+
+char* Complex::to_String()// Получить строковое представление.
+{
+	return expression;
+}
+
+void Complex::set_Valid(const double& var)
+{
+	this->valid = var;
+	to_StrExpression();
+}
+
+void Complex::set_Image(const double& var)
+{
+	this->image = var;
+	to_StrExpression();
+}
+
+void Complex::to_StrExpression()
+{
+	char expr[255];
+	sprintf_s(expr, 100, "(%f + %f i)", this->valid, this->image);
+
+	if (this->expression)
+	{
+
+		delete[] this->expression;
+		this->expression = nullptr;
+	}
+	int len = strlen(expr) + 1;
+	this->expression = new char[len];
+	strcpy_s(this->expression, len, expr);
 }
 
 int Complex::count = 0;// Начальное значение.
