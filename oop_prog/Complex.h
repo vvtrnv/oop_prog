@@ -16,8 +16,6 @@ public:
 	~Complex();
 
 	// Функции класса.
-	char* to_String();// Получить expression объекта.
-	void to_StrExpression(); // Собрать поле объекта expression.
 	void showResult();// Вывод на экран результата.
 	void showNumber();// Кол-во выражений.
 	void summarize(const Complex& first, const Complex& second);// Суммирование.
@@ -37,6 +35,14 @@ public:
 	friend istream& operator >> (istream& is, Complex& p); // Перегруженный оператор ввода из консоли.
 	friend ofstream& operator << (ofstream& of, Complex& p); // Перегруженный оператор для записи в txt файл.
 	friend ifstream& operator >> (ifstream& is, Complex& p); // Перегруженный оператор для считывания из txt файла.
+
+	double get_Value();
+	double get_Image();
+	char* to_String();// Получить expression объекта.
+
+	void set_Value();
+	void set_Image();
+	void to_StrExpression(); // Собрать поле объекта expression.
 
 private:
 	double valid;// Дейстивительная часть числа.
