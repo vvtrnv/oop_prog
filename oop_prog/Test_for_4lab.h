@@ -6,8 +6,7 @@ using namespace std;
 
 void Test1()
 {
-	Translation first(1,2);
-	first.double_toStr();
-	cout << "expression = " << first.to_String() << endl;
-	cout << "strRepresent = " << first.get_strRepresent() << endl;
+	Translation a("1125125.11 + 5151515.2515i");
+	cout << a.get_strRepresent() << endl;
+
 }

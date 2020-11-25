@@ -13,9 +13,9 @@ Complex::Complex()// Стандартный конструктор класса.
 {
 	expression = new char[10];
 
-	valid = 0;
-	image = 0;
-	strcpy_s(expression, 10, "0 + 0");
+	this->valid = 0;
+	this->image = 0;
+	this->to_StrExpression();
 }
 
 Complex::Complex(double value_valid, double value_image, const char* appointExpression)// Конструктор класса.
