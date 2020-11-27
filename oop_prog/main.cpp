@@ -27,8 +27,8 @@ int main()
 	//if (Lab3_test3())cout << "~Test #3 Successfully!\n\n";
 	//else cout << "Error in test#3\n\n";
 	
-	Test1();
-
+	Lab4_test1();
+	Lab4_test2();
 	cin.get();
 	return 0;
 }

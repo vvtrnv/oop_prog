@@ -24,7 +24,7 @@
     <ClCompile Include="AnotherRep.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="Date.cpp">
+    <ClCompile Include="cDate.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,7 +44,7 @@
     <ClInclude Include="AnotherRep.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Date.h">
+    <ClInclude Include="cDate.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

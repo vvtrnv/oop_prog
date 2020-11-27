@@ -140,13 +140,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Complex.cpp" />
-    <ClCompile Include="Date.cpp" />
+    <ClCompile Include="cDate.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="AnotherRep.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Complex.h" />
-    <ClInclude Include="Date.h" />
+    <ClInclude Include="cDate.h" />
     <ClInclude Include="Test_for_1lab.h" />
     <ClInclude Include="Test_for_3lab.h" />
     <ClInclude Include="Test_for_4lab.h" />
