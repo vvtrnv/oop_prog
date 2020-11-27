@@ -1,12 +1,20 @@
 #pragma once
 #include <iostream>
-#include "Translation.h"
+#include "AnotherRep.h"
 
 using namespace std;
 
-void Test1()
+bool compareRes(AnotherRep obj, const char* expectation)
 {
-	Translation a("1125125.11 + 5151515.2515i");
-	cout << a.get_strRepresent() << endl;
+
+}
+
+void Lab4_test1()
+{
+	// Тестируем класс наследник AnotherRep: создание объектов.
+	cout << "TEST1 - CREATE OBJECTS" << endl;
+	AnotherRep first(3, -3);
+	cout << first.get_strTrig() << endl;
+	cout << first.get_strExp();
 
 }

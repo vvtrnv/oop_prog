@@ -141,14 +141,14 @@
   <ItemGroup>
     <ClCompile Include="Complex.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Translation.cpp" />
+    <ClCompile Include="AnotherRep.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Complex.h" />
     <ClInclude Include="Test_for_1lab.h" />
     <ClInclude Include="Test_for_3lab.h" />
     <ClInclude Include="Test_for_4lab.h" />
-    <ClInclude Include="Translation.h" />
+    <ClInclude Include="AnotherRep.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

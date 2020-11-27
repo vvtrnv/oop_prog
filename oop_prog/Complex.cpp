@@ -120,7 +120,7 @@ void Complex::compare_with(const double& value_valid, const double& value_image)
 {
 	const double EPS = 1e-3;// Константа для сравнения
 	cout << "Expected result: " << value_valid << " + " << value_image << "i"
-		<< "\nand Real result: " << this->valid << " + " << this->image << "i" << endl;
+		 << "\nand Real result: " << this->valid << " + " << this->image << "i" << endl;
 	if (abs(value_valid - this->valid) < EPS && abs(value_image - this->image) < EPS)
 	{
 		cout << "The result matched!\n\n\n";
