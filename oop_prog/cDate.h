@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "Complex.h"
 
 class cDate : public Complex

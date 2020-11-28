@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include "AnotherRep.h"
 #include "cDate.h"
@@ -14,7 +14,7 @@ bool compareRes(AnotherRep& obj, const double& r, const double& angle)
 
 void Lab4_test_1()
 {
-	// Тестируем класс наследник AnotherRep: создание объектов.
+	// РўРµСЃС‚РёСЂСѓРµРј РєР»Р°СЃСЃ РЅР°СЃР»РµРґРЅРёРє AnotherRep: СЃРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚РѕРІ.
 	cout << "~~~~~AnotherRep::TEST_1 - CREATE OBJECT WITH PARAMETERS" << endl;
 	AnotherRep first(0, -3);
 	cout << first.get_strTrig() << endl;

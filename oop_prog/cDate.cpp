@@ -1,7 +1,7 @@
-#include <ctime>
+п»ї#include <ctime>
 #include "cDate.h"
 
-// Конструкторы.
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹.
 cDate::cDate() : Complex()
 {
 	//this->dateCreate = new char[10];
@@ -17,17 +17,17 @@ cDate::cDate(double var1, double var2) : Complex(var1, var2)
 }
 
 
-// Деструктор, поскольку нужно освободить память.
+// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ, РїРѕСЃРєРѕР»СЊРєСѓ РЅСѓР¶РЅРѕ РѕСЃРІРѕР±РѕРґРёС‚СЊ РїР°РјСЏС‚СЊ.
 cDate::~cDate()
 {
 	delete[] dateCreate;
 }
 
 
-// Геттеры. Сеттеры не нужны, поскольку изменять ничего нельзя.
+// Р“РµС‚С‚РµСЂС‹. РЎРµС‚С‚РµСЂС‹ РЅРµ РЅСѓР¶РЅС‹, РїРѕСЃРєРѕР»СЊРєСѓ РёР·РјРµРЅСЏС‚СЊ РЅРёС‡РµРіРѕ РЅРµР»СЊР·СЏ.
 char* cDate::get_dateCreate() { return this->dateCreate; }
 
-// Методы.
+// РњРµС‚РѕРґС‹.
 void cDate::fixTime()
 {
 	time_t now = time(NULL);

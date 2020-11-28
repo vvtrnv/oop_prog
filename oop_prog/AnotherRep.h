@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include "Complex.h"
 class AnotherRep : public Complex
 {
@@ -18,9 +18,9 @@ public:
 	double get_Angle();
 
 private:
-	char* strTrig; // Тригонометрическая форма.
-	char* strExp; // Показательная форма.
-	double r; // Аргумент.
-	double angle; // Угол.
+	char* strTrig; // РўСЂРёРіРѕРЅРѕРјРµС‚СЂРёС‡РµСЃРєР°СЏ С„РѕСЂРјР°.
+	char* strExp; // РџРѕРєР°Р·Р°С‚РµР»СЊРЅР°СЏ С„РѕСЂРјР°.
+	double r; // РђСЂРіСѓРјРµРЅС‚.
+	double angle; // РЈРіРѕР».
 };
 

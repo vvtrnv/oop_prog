@@ -1,9 +1,9 @@
-#include <cmath>
+п»ї#include <cmath>
 #include "AnotherRep.h"
 
 #define strdup _strdup
 
-// Конструкторы.
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹.
 AnotherRep::AnotherRep() : Complex()
 { 
 	this->r = 0;
@@ -25,7 +25,7 @@ AnotherRep::AnotherRep(double var1, double var2) : Complex(var1, var2)
 }
 
 
-// Деструктор, поскольку нужно освободить память.
+// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ, РїРѕСЃРєРѕР»СЊРєСѓ РЅСѓР¶РЅРѕ РѕСЃРІРѕР±РѕРґРёС‚СЊ РїР°РјСЏС‚СЊ.
 AnotherRep::~AnotherRep()
 {
 	delete[] strTrig;
@@ -33,7 +33,7 @@ AnotherRep::~AnotherRep()
 }
 
 
-// Геттеры. Сеттеры не нужны, тк все поля нужно вычислять.
+// Р“РµС‚С‚РµСЂС‹. РЎРµС‚С‚РµСЂС‹ РЅРµ РЅСѓР¶РЅС‹, С‚Рє РІСЃРµ РїРѕР»СЏ РЅСѓР¶РЅРѕ РІС‹С‡РёСЃР»СЏС‚СЊ.
 char* AnotherRep::get_strTrig()
 {
 	return this->strTrig;
@@ -55,13 +55,13 @@ double AnotherRep::get_Angle()
 }
 
 
-// Методы.
+// РњРµС‚РѕРґС‹.
 void AnotherRep::convertTrig()
 {
 	char temp[500];
 
-	this->r = sqrt(pow(get_Valid(), 2) + pow(get_Image(), 2)); // находим аргумент.
-	this->angle = atan(get_Image() / get_Valid()); // Находим угол.
+	this->r = sqrt(pow(get_Valid(), 2) + pow(get_Image(), 2)); // РЅР°С…РѕРґРёРј Р°СЂРіСѓРјРµРЅС‚.
+	this->angle = atan(get_Image() / get_Valid()); // РќР°С…РѕРґРёРј СѓРіРѕР».
 
 	sprintf_s(temp, 500, "%f * [cos(%f) + i*sin(%f)]", this->r, this->angle, this->angle);
 	strTrig = strdup(temp);
@@ -71,8 +71,8 @@ void AnotherRep::convertExp()
 {
 	char temp[500];
 
-	this->r = sqrt(pow(get_Valid(), 2) + pow(get_Image(), 2)); // находим аргумент.
-	this->angle = atan(get_Image() / get_Valid()); // Находим угол.
+	this->r = sqrt(pow(get_Valid(), 2) + pow(get_Image(), 2)); // РЅР°С…РѕРґРёРј Р°СЂРіСѓРјРµРЅС‚.
+	this->angle = atan(get_Image() / get_Valid()); // РќР°С…РѕРґРёРј СѓРіРѕР».
 
 	if (angle < 0)
 	{
