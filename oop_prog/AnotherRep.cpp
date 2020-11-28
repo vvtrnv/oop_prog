@@ -1,4 +1,3 @@
-#include <sstream>
 #include <cmath>
 #include "AnotherRep.h"
 
@@ -10,10 +9,10 @@ AnotherRep::AnotherRep() : Complex()
 	this->r = 0;
 	this->angle = 0;
 
-	strTrig = new char[20];
-	strExp = new char[20];
-	strcpy_s(strTrig, 10, "NOT INITIALIZE");
-	strcpy_s(strExp, 10, "NOT INITIALIZE");
+	strTrig = new char[30];
+	strExp = new char[30];
+	strcpy_s(strTrig, 30, "NOT INITIALIZE");
+	strcpy_s(strExp, 30, "NOT INITIALIZE");
 }
 
 AnotherRep::AnotherRep(double var1, double var2) : Complex(var1, var2) 
@@ -75,6 +74,19 @@ void AnotherRep::convertExp()
 	this->r = sqrt(pow(get_Valid(), 2) + pow(get_Image(), 2)); // находим аргумент.
 	this->angle = atan(get_Image() / get_Valid()); // Находим угол.
 
-	sprintf_s(temp, 500, "%f * exp(i*%f)", this->r, this->angle);
+	if (angle < 0)
+	{
+		double t;
+		t = -this->angle;
+		sprintf_s(temp, 500, "%f * exp(-i*%f)", this->r, t);
+	}
+	else sprintf_s(temp, 500, "%f * exp(i*%f)", this->r, this->angle);
+
 	strExp = strdup(temp);
+}
+
+void AnotherRep::convertAllForms()
+{
+	convertTrig();
+	convertExp();
 }

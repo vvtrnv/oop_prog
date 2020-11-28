@@ -10,6 +10,7 @@ public:
 
 	void convertTrig();
 	void convertExp();
+	void convertAllForms();
 
 	char* get_strTrig();
 	char* get_strExp();
