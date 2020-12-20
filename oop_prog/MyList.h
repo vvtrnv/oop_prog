@@ -6,17 +6,19 @@ class MyList
 {
 public:
 	MyList(); // Конструктор.
-	//~MyList(); // Деструктор.
-	void push_back(const double& valid, const double& image); // Добавить в конец.
-	void push_front(const double& valid, const double& image); // Добавить в начало.
+	~MyList(); // Деструктор.
+	void push_back(Complex* nData); // Добавить в конец.
+	void push_front(Complex* nData); // Добавить в начало.
 	void pop_front(); // Удалить первый узел.
 	void clear(); // Очистить список.
-	void insert(const double& valid, const double& image, const int& index); // Добавление по индексу.
+	void insert(Complex* nData, const int& index); // Добавление по индексу.
 	void removeAt(const int& index); // Удалить узел по индексу.
 	void pop_back(); // Удалить последний узел.
-	int get_Size() { return size; }
+	
+	void print_all(ostream& os); // Вывести на экран все объекты.
+	int get_Size() { return size; } 
 
-	Complex& operator[](const int& index);
+	Complex* operator[](const int& index); // Поиск по индексу.
 
 
 private:
@@ -25,11 +27,11 @@ private:
 	{
 	public:
 		Node* pNext; // Указатель на следующий узел списка.
-		Complex data; // Указатель на объект.
-
-		Node(const double& valid, const double& image, Node* next = nullptr)
+		Complex* data; // Указатель на объект.
+		
+		Node(Complex* nData, Node* next = nullptr)
 		{
-			this->data = Complex(valid, image);
+			this->data = nData;
 			this->pNext = next;
 		}
 	};
@@ -37,5 +39,3 @@ private:
 	int size; // Размер.
 	Node* head; // Начальный узел.
 };
-
-

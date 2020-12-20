@@ -48,7 +48,7 @@ void Lab4_test_3()
 	cout << "~~~~~cDate::TEST_3 - CREATE OBJECT WITH PARAMETERS" << endl;
 	cDate first(141,24);
 	cout << first.to_String() << endl;
-	cout << first.get_dateCreate() << endl;
+	cout << first.to_String() << endl;
 	cout << "\n\n";
 }
 
@@ -57,10 +57,10 @@ void Lab4_test_4()
 	cout << "~~~~~cDate::TEST_4 - CREATE OBJECT WITHOUT PARAMETERS" << endl;
 	cDate first;
 	cout << first.to_String() << endl;
-	cout << first.get_dateCreate() << endl;
+	cout << first.to_String() << endl;
 
 	cout << "SET PARAMETERS:\n";
 	first.set_Valid(421.13); first.set_Image(-1312);
 	cout << first.to_String() << endl;
-	cout << first.get_dateCreate() << endl;
+	cout << first.to_String() << endl;
 }

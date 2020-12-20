@@ -8,7 +8,7 @@ public:
 	cDate(double var1, double var2);
 	~cDate();
 
-	char* get_dateCreate();
+	virtual char* to_String();
 	void fixTime();
 
 private:

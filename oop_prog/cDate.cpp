@@ -25,7 +25,7 @@ cDate::~cDate()
 
 
 // Геттеры. Сеттеры не нужны, поскольку изменять ничего нельзя.
-char* cDate::get_dateCreate() { return this->dateCreate; }
+char* cDate::to_String() { return this->dateCreate; }
 
 // Методы.
 void cDate::fixTime()

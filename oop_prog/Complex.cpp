@@ -317,6 +317,7 @@ void Complex::set_Image(const double& var)
 
 void Complex::to_StrExpression()
 {
+	setlocale(LC_NUMERIC, "C");
 	char expr[255];
 	sprintf_s(expr, 100, "(%f + %f i)", this->valid, this->image);
 

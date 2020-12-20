@@ -6,10 +6,10 @@ MyList::MyList()
 	head = nullptr;
 }
 
-void MyList::push_back(const double& valid, const double& image)
+void MyList::push_back(Complex* nData)
 {
 	if (head == nullptr) 
-		head = new Node(valid, image);
+		head = new Node(nData);
 	else
 	{
 		Node* current = this->head;
@@ -17,15 +17,15 @@ void MyList::push_back(const double& valid, const double& image)
 		while (current->pNext != nullptr) 
 			current = current->pNext;
 
-		current->pNext = new Node(valid, image);
+		current->pNext = new Node(nData);
 	}
 
 	size++;
 }
 
-void MyList::push_front(const double& valid, const double& image)
+void MyList::push_front(Complex* nData)
 {
-	head = new Node(valid, image, head);
+	head = new Node(nData, head);
 	size++;
 }
 
@@ -44,10 +44,10 @@ void MyList::clear()
 		pop_front();
 }
 
-void MyList::insert(const double& valid, const double& image, const int& index)
+void MyList::insert(Complex* nData, const int& index)
 {
 	if (index == 0)
-		push_front(valid, image);
+		push_front(nData);
 	else
 	{
 		Node* previous = this->head;
@@ -56,7 +56,7 @@ void MyList::insert(const double& valid, const double& image, const int& index)
 			previous = previous->pNext;
 		}
 
-		Node* newNode = new Node(valid, image, previous->pNext);
+		Node* newNode = new Node(nData, previous->pNext);
 		previous->pNext = newNode;
 		size++;
 	}
@@ -87,7 +87,7 @@ void MyList::pop_back()
 	removeAt(size - 1);
 }
 
-Complex& MyList::operator[](const int& index)
+Complex* MyList::operator[](const int& index)
 {
 	int counter = 0;
 	Node* current = this->head;
@@ -100,4 +100,20 @@ Complex& MyList::operator[](const int& index)
 		current = current->pNext;
 		counter++;
 	}
+}
+
+void MyList::print_all(ostream& os)
+{
+	Node* current = this->head;
+	int len = this->get_Size();
+	for (int i = 0; i < len; i++)
+	{
+		os << i << ") " << current->data->to_String() << endl;
+		current = current->pNext;
+	}
+}
+
+MyList::~MyList()
+{
+	clear();
 }

@@ -14,6 +14,7 @@ public:
 
 	char* get_strTrig();
 	char* get_strExp();
+	virtual char* to_String();
 	double get_R();
 	double get_Angle();
 

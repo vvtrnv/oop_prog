@@ -58,6 +58,7 @@ double AnotherRep::get_Angle()
 // Методы.
 void AnotherRep::convertTrig()
 {
+	setlocale(LC_NUMERIC, "C");
 	char temp[500];
 
 	this->r = sqrt(pow(get_Valid(), 2) + pow(get_Image(), 2)); // находим аргумент.
@@ -69,6 +70,7 @@ void AnotherRep::convertTrig()
 
 void AnotherRep::convertExp()
 {
+	setlocale(LC_NUMERIC, "C");
 	char temp[500];
 
 	this->r = sqrt(pow(get_Valid(), 2) + pow(get_Image(), 2)); // находим аргумент.
@@ -89,4 +91,9 @@ void AnotherRep::convertAllForms()
 {
 	convertTrig();
 	convertExp();
+}
+
+char* AnotherRep::to_String()
+{
+	return strTrig;
 }

@@ -39,7 +39,7 @@ public:
 
 	double get_Valid();
 	double get_Image();
-	char* to_String();// Получить expression объекта.
+	virtual char* to_String();// Получить expression объекта.
 	void set_Valid(const double& var);
 	void set_Image(const double& var);
 	void to_StrExpression(); // Собрать поле объекта expression.

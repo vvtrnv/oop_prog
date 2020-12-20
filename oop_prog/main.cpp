@@ -34,7 +34,12 @@ int main()
 	//Lab4_test_4();
 
 	// Лабораторная работа №5.Тесты.
-	test1_push_back_and_index();
+	
+	//test1_push_back_and_index();
+	//test2_push_front_and_clear();
+	//test3_insert_and_print_all();
+	//test4_removeAt_and_pop_back_and_pop_front();
+	test5_polymorphism();
 
 	cin.get();
 	return 0;
