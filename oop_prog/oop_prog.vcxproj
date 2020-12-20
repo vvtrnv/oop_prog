@@ -143,14 +143,17 @@
     <ClCompile Include="cDate.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="AnotherRep.cpp" />
+    <ClCompile Include="MyList.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Complex.h" />
     <ClInclude Include="cDate.h" />
+    <ClInclude Include="MyList.h" />
     <ClInclude Include="Test_for_1lab.h" />
     <ClInclude Include="Test_for_3lab.h" />
     <ClInclude Include="Test_for_4lab.h" />
     <ClInclude Include="AnotherRep.h" />
+    <ClInclude Include="Test_for_5lab.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

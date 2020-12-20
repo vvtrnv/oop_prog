@@ -5,11 +5,13 @@
 #include "Test_for_1lab.h"
 #include "Test_for_3lab.h"
 #include "Test_for_4lab.h"
+#include "Test_for_5lab.h"
 
 using namespace std;
 
 int main()
 {
+	setlocale(LC_ALL, "ru");
 	// Лабораторная работа №1.Тесты.
 	//bool result = true;
 	//Lab1_test1(result);
@@ -26,10 +28,14 @@ int main()
 	//else cout << "Error in test#3\n\n";
 	
 	// Лабораторная работа №4.Тесты.
-	Lab4_test_1();
-	Lab4_test_2();
-	Lab4_test_3();
-	Lab4_test_4();
+	//Lab4_test_1();
+	//Lab4_test_2();
+	//Lab4_test_3();
+	//Lab4_test_4();
+
+	// Лабораторная работа №5.Тесты.
+	test1_push_back_and_index();
+
 	cin.get();
 	return 0;
 }
