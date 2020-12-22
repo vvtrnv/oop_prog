@@ -4,15 +4,12 @@
 // Конструкторы.
 cDate::cDate() : Complex()
 {
-	//this->dateCreate = new char[10];
-	//dateCreate = nullptr;
 	fixTime();
 }
 
 cDate::cDate(double var1, double var2) : Complex(var1, var2)
 {
-	//this->dateCreate = new char[10];
-	//dateCreate = nullptr;
+
 	fixTime();
 }
 

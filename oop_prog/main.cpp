@@ -35,11 +35,20 @@ int main()
 
 	// Лабораторная работа №5.Тесты.
 	
-	//test1_push_back_and_index();
-	//test2_push_front_and_clear();
-	//test3_insert_and_print_all();
-	//test4_removeAt_and_pop_back_and_pop_front();
-	test5_polymorphism();
+	if (test1_push_back_and_index()) cout << "Тест #1 пройден!\n\n\n";
+	else cout << "Ошибка. Тест #1 не пройден!\n\n\n";
+
+	/*if (test2_push_front_and_clear()) cout << "Тест #2 пройден!\n\n\n";
+	else cout << "Ошибка. Тест #2 не пройден!\n\n\n";*/
+	
+	if (test3_insert_and_print_all()) cout << "Тест #3 пройден!\n\n\n";
+	else cout << "Ошибка. Тест #3 не пройден!\n\n\n";
+
+	if (test4_removeAt_and_pop_back_and_pop_front()) cout << "Тест #4 пройден!\n\n\n";
+	else cout << "Ошибка. Тест #4 не пройден!\n\n\n";
+
+	if (test5_polymorphism()) cout << "Тест #5 пройден!\n\n\n";
+	else cout << "Ошибка. Тест #5 не пройден!\n\n\n";
 
 	cin.get();
 	return 0;
