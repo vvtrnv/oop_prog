@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include <ctime>
 #include "MyList.h"
@@ -7,12 +7,12 @@
 
 using namespace std;
 
-void compare(bool& st, const char* expected[], MyList& obj); // Сравнение результатов.
-void fill_list(const int& len, Complex* arr[], MyList& obj); // Заполнение списка.
+void compare(bool& st, const char* expected[], MyList& obj); // РЎСЂР°РІРЅРµРЅРёРµ СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ.
+void fill_list(const int& len, Complex* arr[], MyList& obj); // Р—Р°РїРѕР»РЅРµРЅРёРµ СЃРїРёСЃРєР°.
 
 bool test1_push_back_and_index()
 {
-	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Тест функции push_back() и обращения по индексу[]" << endl;
+	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~РўРµСЃС‚ С„СѓРЅРєС†РёРё push_back() Рё РѕР±СЂР°С‰РµРЅРёСЏ РїРѕ РёРЅРґРµРєСЃСѓ[]" << endl;
 	const int len = 5;
 	bool status = true;
 
@@ -41,7 +41,7 @@ bool test1_push_back_and_index()
 	MyList objects;
 	fill_list(len, arr, objects);
 
-	cout << "Размер списка = " << objects.get_Size() << endl << endl;
+	cout << "Р Р°Р·РјРµСЂ СЃРїРёСЃРєР° = " << objects.get_Size() << endl << endl;
 
 	compare(status, expected, objects);
 
@@ -51,7 +51,7 @@ bool test1_push_back_and_index()
 
 bool test2_push_front_and_clear()
 {
-	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Тест функции push_front() и clear()" << endl;
+	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~РўРµСЃС‚ С„СѓРЅРєС†РёРё push_front() Рё clear()" << endl;
 	const int len = 5;
 	bool status = true;
 
@@ -83,13 +83,13 @@ bool test2_push_front_and_clear()
 		objects.push_front(arr[i]);
 	}
 
-	cout << "Размер списка = " << objects.get_Size() << endl;
+	cout << "Р Р°Р·РјРµСЂ СЃРїРёСЃРєР° = " << objects.get_Size() << endl;
 
 	compare(status, expected, objects);
 
-	cout << "\n~~Вызов функции clear():\n";
+	cout << "\n~~Р’С‹Р·РѕРІ С„СѓРЅРєС†РёРё clear():\n";
 	objects.clear();
-	cout << "Размер списка = " << objects.get_Size() << endl << endl;
+	cout << "Р Р°Р·РјРµСЂ СЃРїРёСЃРєР° = " << objects.get_Size() << endl << endl;
 
 
 	return status;
@@ -97,7 +97,7 @@ bool test2_push_front_and_clear()
 
 bool test3_insert_and_print_all()
 {
-	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Тест функции insert() и print_all()" << endl;
+	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~РўРµСЃС‚ С„СѓРЅРєС†РёРё insert() Рё print_all()" << endl;
 	const int len = 5;
 	bool status = true;
 
@@ -130,7 +130,7 @@ bool test3_insert_and_print_all()
 	fill_list(len, arr, objects);
 	objects.print_all(cout);
 
-	cout << "\n~~Вызов функции insert() - Добавление по индексу 3\n";
+	cout << "\n~~Р’С‹Р·РѕРІ С„СѓРЅРєС†РёРё insert() - Р”РѕР±Р°РІР»РµРЅРёРµ РїРѕ РёРЅРґРµРєСЃСѓ 3\n";
 	objects.insert(toAdd, 3);
 	
 	compare(status, expected, objects);
@@ -141,7 +141,7 @@ bool test3_insert_and_print_all()
 
 bool test4_removeAt_and_pop_back_and_pop_front()
 {
-	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Тест функции removeAt(), pop_front() и pop_back()" << endl;
+	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~РўРµСЃС‚ С„СѓРЅРєС†РёРё removeAt(), pop_front() Рё pop_back()" << endl;
 	const int len = 7;
 	bool status = true;
 
@@ -171,18 +171,18 @@ bool test4_removeAt_and_pop_back_and_pop_front()
 	MyList objects;
 	fill_list(len, arr, objects);
 	
-	cout << "\n~~Изначальный список:\n";
+	cout << "\n~~РР·РЅР°С‡Р°Р»СЊРЅС‹Р№ СЃРїРёСЃРѕРє:\n";
 	objects.print_all(cout);
 
-	cout << "\n~~Вызов функции removeAt() - удаление по индексу 4\n";
+	cout << "\n~~Р’С‹Р·РѕРІ С„СѓРЅРєС†РёРё removeAt() - СѓРґР°Р»РµРЅРёРµ РїРѕ РёРЅРґРµРєСЃСѓ 4\n";
 	objects.removeAt(4);
 	objects.print_all(cout);
 
-	cout << "\n~~Вызов функции pop_front() - удаление первого узла\n";
+	cout << "\n~~Р’С‹Р·РѕРІ С„СѓРЅРєС†РёРё pop_front() - СѓРґР°Р»РµРЅРёРµ РїРµСЂРІРѕРіРѕ СѓР·Р»Р°\n";
 	objects.pop_front();
 	objects.print_all(cout);
 
-	cout << "\n~~Вызов функции pop_back - удаление последнего узла\n\n";
+	cout << "\n~~Р’С‹Р·РѕРІ С„СѓРЅРєС†РёРё pop_back - СѓРґР°Р»РµРЅРёРµ РїРѕСЃР»РµРґРЅРµРіРѕ СѓР·Р»Р°\n\n";
 	objects.pop_back();
 
 	compare(status, expected, objects);
@@ -193,7 +193,7 @@ bool test4_removeAt_and_pop_back_and_pop_front()
 
 bool test5_polymorphism()
 {
-	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Тест функции to_String() при полиморфизме" << endl;
+	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~РўРµСЃС‚ С„СѓРЅРєС†РёРё to_String() РїСЂРё РїРѕР»РёРјРѕСЂС„РёР·РјРµ" << endl;
 	const int len = 7;
 	bool status = true;
 
@@ -233,19 +233,19 @@ bool test5_polymorphism()
 }
 
 
-// Функция сравнения результата с ожидаемым.
+// Р¤СѓРЅРєС†РёСЏ СЃСЂР°РІРЅРµРЅРёСЏ СЂРµР·СѓР»СЊС‚Р°С‚Р° СЃ РѕР¶РёРґР°РµРјС‹Рј.
 void compare(bool& st, const char* expected[], MyList& obj)
 {
 	for (int i = 0; i < obj.get_Size(); i++)
 	{
-		cout << "Ожидаемое значение:\t" << expected[i] << endl;
-		cout << "Реальное значение:\t" << obj[i]->to_String() << endl << endl;
+		cout << "РћР¶РёРґР°РµРјРѕРµ Р·РЅР°С‡РµРЅРёРµ:\t" << expected[i] << endl;
+		cout << "Р РµР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ:\t" << obj[i]->to_String() << endl << endl;
 
 		if (strcmp(expected[i], obj[i]->to_String()) != 0) st = false;
 	}
 }
 
-// Заполнение списка.
+// Р—Р°РїРѕР»РЅРµРЅРёРµ СЃРїРёСЃРєР°.
 void fill_list(const int& len, Complex* arr[], MyList& obj)
 {
 	for (int i = 0; i < len; i++)

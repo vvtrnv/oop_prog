@@ -1,24 +1,24 @@
-#pragma once
+п»ї#pragma once
 #include "Complex.h"
 #include "AnotherRep.h"
 #include "cDate.h"
 class MyList
 {
 public:
-	MyList(); // Конструктор.
-	~MyList(); // Деструктор.
-	void push_back(Complex* nData); // Добавить в конец.
-	void push_front(Complex* nData); // Добавить в начало.
-	void pop_front(); // Удалить первый узел.
-	void clear(); // Очистить список.
-	void insert(Complex* nData, const int& index); // Добавление по индексу.
-	void removeAt(const int& index); // Удалить узел по индексу.
-	void pop_back(); // Удалить последний узел.
+	MyList(); // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ.
+	~MyList(); // Р”РµСЃС‚СЂСѓРєС‚РѕСЂ.
+	void push_back(Complex* nData); // Р”РѕР±Р°РІРёС‚СЊ РІ РєРѕРЅРµС†.
+	void push_front(Complex* nData); // Р”РѕР±Р°РІРёС‚СЊ РІ РЅР°С‡Р°Р»Рѕ.
+	void pop_front(); // РЈРґР°Р»РёС‚СЊ РїРµСЂРІС‹Р№ СѓР·РµР».
+	void clear(); // РћС‡РёСЃС‚РёС‚СЊ СЃРїРёСЃРѕРє.
+	void insert(Complex* nData, const int& index); // Р”РѕР±Р°РІР»РµРЅРёРµ РїРѕ РёРЅРґРµРєСЃСѓ.
+	void removeAt(const int& index); // РЈРґР°Р»РёС‚СЊ СѓР·РµР» РїРѕ РёРЅРґРµРєСЃСѓ.
+	void pop_back(); // РЈРґР°Р»РёС‚СЊ РїРѕСЃР»РµРґРЅРёР№ СѓР·РµР».
 	
-	void print_all(ostream& os); // Вывести на экран все объекты.
+	void print_all(ostream& os); // Р’С‹РІРµСЃС‚Рё РЅР° СЌРєСЂР°РЅ РІСЃРµ РѕР±СЉРµРєС‚С‹.
 	int get_Size() { return size; } 
 
-	Complex* operator[](const int& index); // Поиск по индексу.
+	Complex* operator[](const int& index); // РџРѕРёСЃРє РїРѕ РёРЅРґРµРєСЃСѓ.
 
 
 private:
@@ -26,8 +26,8 @@ private:
 	class Node
 	{
 	public:
-		Node* pNext; // Указатель на следующий узел списка.
-		Complex* data; // Указатель на объект.
+		Node* pNext; // РЈРєР°Р·Р°С‚РµР»СЊ РЅР° СЃР»РµРґСѓСЋС‰РёР№ СѓР·РµР» СЃРїРёСЃРєР°.
+		Complex* data; // РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РѕР±СЉРµРєС‚.
 		
 		Node(Complex* nData, Node* next = nullptr)
 		{
@@ -36,6 +36,6 @@ private:
 		}
 	};
 
-	int size; // Размер.
-	Node* head; // Начальный узел.
+	int size; // Р Р°Р·РјРµСЂ.
+	Node* head; // РќР°С‡Р°Р»СЊРЅС‹Р№ СѓР·РµР».
 };
