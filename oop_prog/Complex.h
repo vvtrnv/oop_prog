@@ -30,12 +30,14 @@ public:
 	friend ifstream& readingBinary(ifstream& is, Complex& obj); // Чтение из бинарного файла
 
 	Complex& operator = (const Complex& other); // Оператор присваивания.
+	friend bool operator < (const Complex& left, const Complex& right);
+	bool operator==(const Complex& obj);
 	
+
 	friend ostream& operator << (ostream& os, Complex& p); // Перегруженный оператор вывода на экран.
 	friend istream& operator >> (istream& is, Complex& p); // Перегруженный оператор ввода из консоли.
 	friend ofstream& operator << (ofstream& of, Complex& p); // Перегруженный оператор для записи в txt файл.
 	friend ifstream& operator >> (ifstream& is, Complex& p); // Перегруженный оператор для считывания из txt файла.
-
 
 	double get_Valid();
 	double get_Image();

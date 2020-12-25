@@ -56,5 +56,8 @@
     <ClInclude Include="Test_for_5lab.h">
       <Filter>Исходные файлы\Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="Test_for_8lab.h">
+      <Filter>Исходные файлы\Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

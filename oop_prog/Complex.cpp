@@ -170,6 +170,24 @@ Complex& Complex::operator = (const Complex& other)
 	return *this;
 }
 
+bool operator<(const Complex& left, const Complex& right)
+{
+	if (left.valid < right.valid) return true;
+	else if (left.valid == right.valid)
+	{
+		if (left.image < right.image) return true;
+		else return false;
+	}
+	else return false;
+}
+
+bool Complex::operator==(const Complex& obj)
+{
+	if (strcmp(this->expression, obj.expression) == 0)
+		return true;
+	else return false;
+}
+
 ostream& operator << (ostream& os, Complex& p) // Вывод на экран.
 {
 	os << "valid = " << p.valid << "\timage = " << p.image << "\texpression = "  << p.expression << endl;
