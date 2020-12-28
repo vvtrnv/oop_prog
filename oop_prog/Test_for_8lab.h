@@ -17,9 +17,8 @@ bool test1_stack_int()
 	stack<int> typeInt_toDelete;
 	int len = 100000;
 	bool status = true;
-	bool srch = false;
 	const int search = 199;
-
+	bool srch = false;
 
 	int before = clock();
 
@@ -31,22 +30,29 @@ bool test1_stack_int()
 
 	cout << "2. Stack find:" << endl;
 	before = clock();
-
-	for (int i = 0; i < typeInt.size() && srch == false; i++)
+	try
 	{
-		if (typeInt.top() == search)
+		for (int i = 0; i < typeInt.size() && srch == false; i++)
 		{
-			cout << "Element is found!" << endl;
-			srch = true;
-		}
+			if (typeInt.top() == search)
+			{
+				cout << "Element is found!" << endl;
+				srch = true;
+			}
 
-		typeInt.pop();
+			typeInt.pop();
+		}
+		if (!srch)
+			throw exception("Element is not found! :(");
 	}
-	if (!srch) cout << "Element is not found! :(" << endl;
+	catch (const exception& ex)
+	{
+		cout << ex.what() << endl;
+	}
 
 	cout << "Time find stack:\t" << clock() - before << " ms" << endl;
 
-	// Очищаем оставшиеся элементы чтобы на новом стеке проверить удаление 100000 элементов.
+	// Очищаем оставшиеся элементы чтобы на новом стеке, чтобы сравнение было объективным.
 	while (!typeInt.empty())
 	{
 		typeInt.pop();
@@ -92,21 +98,29 @@ bool test2_stack_complex()
 
 	cout << "2. Stack find:" << endl;
 	before = clock();
-
-	for (int i = 0; i < typeComplex.size() && srch == false; i++)
+	try
 	{
-		if (typeComplex.top() == search)
+		for (int i = 0; i < typeComplex.size() && srch == false; i++)
 		{
-			cout << "Element is found!" << endl;
-			srch = true;
-		}
+			if (typeComplex.top() == search)
+			{
+				cout << "Element is found!" << endl;
+				srch = true;
+			}
 
-		typeComplex.pop();
+			typeComplex.pop();
+		}
+		if (!srch)
+			throw exception("Element is not found!");
 	}
-	if (!srch) cout << "Element is not found! :(" << endl;
+	catch (const exception& ex)
+	{
+		cout << ex.what() << endl;
+	}
 
 	cout << "Time find stack:\t" << clock() - before << " ms" << endl;
 
+	// Полностью очищаем стек, чтобы сравнение было объективным.
 	while (!typeComplex.empty())
 	{
 		typeComplex.pop();
@@ -197,7 +211,7 @@ bool test4_multiset_complex()
 	try
 	{
 		if (resultInt == typeComplex.end())
-			throw exception("Element doesn`t find :(\n");
+			throw exception("Element doesn`t find :(");
 
 	}
 	catch (exception& ex)

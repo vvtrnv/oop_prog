@@ -52,14 +52,51 @@ int main()
 	//else cout << "Ошибка. Тест #5 не пройден!\n\n\n";
 
 	// Лабораторная работа № 8. Тесты.
-	if(test1_stack_int()) cout << "stack empty!" << endl;
-	else cout << "stack is not empty!!" << endl;
+	try
+	{
+		if (test1_stack_int()) cout << "stack empty!" << endl;
+		else
+			throw exception("stack is not empty!!!");
+	}
+	catch (const exception& ex)
+	{
+		cout << ex.what() << endl;
+	}
 
-	if(test2_stack_complex()) cout << "stack empty!" << endl;
-	else cout << "stack is not empty!!" << endl;
 
-	test3_multiset_int();
-	test4_multiset_complex();
+	try
+	{
+		if (test2_stack_complex()) cout << "stack empty!" << endl;
+		else
+			throw exception("stack is not empty!!");
+	}
+	catch (const exception& ex)
+	{
+		cout << ex.what() << endl;
+	}
+
+	try
+	{
+		if (test3_multiset_int()) cout << "multiset empty!" << endl;
+		else
+			throw exception("multiset is not empty!!");
+	}
+	catch (const exception& ex)
+	{
+		cout << ex.what() << endl;
+	}
+
+
+	try
+	{
+		if (test4_multiset_complex()) cout << "multiset empty!" << endl;
+		else
+			throw exception("multiset is not empty!!");
+	}
+	catch (const exception& ex)
+	{
+		cout << ex.what() << endl;
+	}
 
 	cin.get();
 	return 0;
