@@ -31,11 +31,22 @@ void MyList::push_front(Complex* nData)
 
 void MyList::pop_front()
 {
-	Node* temp = head;
-	head = head->pNext;
+	try
+	{
+		if (head == nullptr)
+			throw exception("Error! List is empty!");
+		Node* temp = head;
+		head = head->pNext;
 
-	delete temp;
-	size--;
+		delete temp;
+		size--;
+	}
+	catch (const exception& ex)
+	{
+		cout << ex.what() << endl;
+	}
+
+	
 }
 
 void MyList::clear()
@@ -46,10 +57,13 @@ void MyList::clear()
 
 void MyList::insert(Complex* nData, const int& index)
 {
-	if (index == 0)
-		push_front(nData);
-	else
+	try
 	{
+		if (index == 0)
+			push_front(nData);
+		else if (index >= size)
+			throw exception("Error! The size of the list does not allow");
+
 		Node* previous = this->head;
 		for (int i = 0; i < index - 1; i++)
 		{
@@ -60,56 +74,100 @@ void MyList::insert(Complex* nData, const int& index)
 		previous->pNext = newNode;
 		size++;
 	}
-
+	catch (const exception& ex)
+	{
+		cout << ex.what() << endl;
+	}
 }
 
 void MyList::removeAt(const int& index)
 {
-	if (index == 0)
-		pop_front();
-	else
-	{
-		Node* previous = head;
-		for (int i = 0; i < index - 1; i++)
-		{
-			previous = previous->pNext;
-		}
-		Node* toDelete = previous->pNext;
-		previous->pNext = toDelete->pNext;
 
-		delete toDelete;
-		size--;
+	try
+	{
+		if (index >= size)
+			throw exception("Error! The element does not exist");
+		else if (index == 0)
+			pop_front();
+		else
+		{
+			Node* previous = head;
+			for (int i = 0; i < index - 1; i++)
+			{
+				previous = previous->pNext;
+			}
+			Node* toDelete = previous->pNext;
+			previous->pNext = toDelete->pNext;
+
+			delete toDelete;
+			size--;
+		}
+	}
+	catch (const exception& ex)
+	{
+		cout << ex.what() << endl;
 	}
 }
 
 void MyList::pop_back()
 {
-	removeAt(size - 1);
+	try
+	{
+		if (head == nullptr)
+			throw exception("List is empty!");
+
+		removeAt(size - 1);
+	}
+	catch (const exception& ex)
+	{
+		cout << ex.what() << endl;
+	}
 }
 
 Complex* MyList::operator[](const int& index)
 {
-	int counter = 0;
-	Node* current = this->head;
-
-	while (current != nullptr)
+	try
 	{
-		if (counter == index)
-			return current->data;
+		if (index >= size)
+			throw exception("Error! The element does not exist");
 
-		current = current->pNext;
-		counter++;
+		int counter = 0;
+		Node* current = this->head;
+
+		while (current != nullptr)
+		{
+			if (counter == index)
+				return current->data;
+
+			current = current->pNext;
+			counter++;
+		}
+	}
+	catch (const exception& ex)
+	{
+		cout << ex.what() << endl;
 	}
 }
 
 void MyList::print_all(ostream& os)
 {
-	Node* current = this->head;
-	int len = this->get_Size();
-	for (int i = 0; i < len; i++)
+
+	try
 	{
-		os << i << ") " << current->data->to_String() << endl;
-		current = current->pNext;
+		if (this->head == nullptr)
+			throw exception("Error! List is empty!");
+
+		Node* current = this->head;
+		int len = this->get_Size();
+		for (int i = 0; i < len; i++)
+		{
+			os << i << ") " << current->data->to_String() << endl;
+			current = current->pNext;
+		}
+	}
+	catch (const exception& ex)
+	{
+		cout << ex.what() << endl;
 	}
 }
 
