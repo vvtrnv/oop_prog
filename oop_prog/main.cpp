@@ -36,7 +36,7 @@ int main()
 
 	// Лабораторная работа №5.Тесты.
 	
-	if (test1_push_back_and_index()) cout << "Тест #1 пройден!\n\n\n";
+	/*if (test1_push_back_and_index()) cout << "Тест #1 пройден!\n\n\n";
 	else cout << "Ошибка. Тест #1 не пройден!\n\n\n";
 
 	if (test2_push_front_and_clear()) cout << "Тест #2 пройден!\n\n\n";
@@ -49,10 +49,10 @@ int main()
 	else cout << "Ошибка. Тест #4 не пройден!\n\n\n";
 
 	if (test5_polymorphism()) cout << "Тест #5 пройден!\n\n\n";
-	else cout << "Ошибка. Тест #5 не пройден!\n\n\n";
+	else cout << "Ошибка. Тест #5 не пройден!\n\n\n";*/
 
 	// Лабораторная работа № 8. Тесты.
-	/*try
+	try
 	{
 		if (test1_stack_int()) cout << "stack empty!" << endl;
 		else
@@ -96,7 +96,7 @@ int main()
 	catch (const exception& ex)
 	{
 		cout << ex.what() << endl;
-	}*/
+	}
 
 	cin.get();
 	return 0;
