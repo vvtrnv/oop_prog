@@ -97,14 +97,21 @@ void Complex::subtract(const Complex& first, const Complex& second) // Функ�
 
 void Complex::divide(const Complex& first, const Complex& second)// Деление.
 {
-	count++;
-
-	if ((pow(second.valid, 2) + pow(second.image, 2)) == 0)
-		cout << "ERROR! Division by zero." << endl;
-	else
+	try
 	{
-		this->valid = (first.valid * second.valid + first.image * second.image) / (pow(second.valid, 2) + pow(second.image, 2));
-		this->image = (first.image * second.valid - first.valid * second.image) / (pow(second.valid, 2) + pow(second.image, 2));
+		count++;
+
+		if ((pow(second.valid, 2) + pow(second.image, 2)) == 0)
+			throw exception("ERROR! Division by zero.");
+		else
+		{
+			this->valid = (first.valid * second.valid + first.image * second.image) / (pow(second.valid, 2) + pow(second.image, 2));
+			this->image = (first.image * second.valid - first.valid * second.image) / (pow(second.valid, 2) + pow(second.image, 2));
+		}
+	}
+	catch (const exception& ex)
+	{
+		cout << ex.what() << endl;
 	}
 }
 
@@ -118,16 +125,21 @@ void Complex::multiply(const Complex& first, const Complex& second)// Умнож
 
 void Complex::compare_with(const double& value_valid, const double& value_image)
 {
-	const double EPS = 1e-3;// Константа для сравнения
-	cout << "Expected result: " << value_valid << " + " << value_image << "i"
-		 << "\nand Real result: " << this->valid << " + " << this->image << "i" << endl;
-	if (abs(value_valid - this->valid) < EPS && abs(value_image - this->image) < EPS)
+
+
+	try
 	{
-		cout << "The result matched!\n\n\n";
+		const double EPS = 1e-3;// Константа для сравнения
+		cout << "Expected result: " << value_valid << " + " << value_image << "i"
+			<< "\nand Real result: " << this->valid << " + " << this->image << "i" << endl;
+		if (abs(value_valid - this->valid) < EPS && abs(value_image - this->image) < EPS)
+			cout << "The result matched!" << endl;
+		else
+			throw exception("The result didn't match!");
 	}
-	else
+	catch (const exception& ex)
 	{
-		cout << "The result didn't match!\n\n\n";
+		cout << ex.what() << endl;
 	}
 }
 
