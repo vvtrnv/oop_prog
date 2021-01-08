@@ -7,6 +7,7 @@
 #include "Test_for_4lab.h"
 #include "Test_for_5lab.h"
 #include "Test_for_8lab.h"
+#include "Test_for_6lab.h"
 
 using namespace std;
 
@@ -51,6 +52,8 @@ int main()
 	if (test5_polymorphism()) cout << "Тест #5 пройден!\n\n\n";
 	else cout << "Ошибка. Тест #5 не пройден!\n\n\n";*/
 
+
+
 	// Лабораторная работа № 8. Тесты.
 	//try
 	//{
@@ -87,16 +90,37 @@ int main()
 	//}
 
 
+	//try
+	//{
+	//	if (test4_multiset_complex()) cout << "multiset empty!" << endl;
+	//	else
+	//		throw exception("multiset is not empty!!");
+	//}
+	//catch (const exception& ex)
+	//{
+	//	cout << ex.what() << endl;
+	//}
+
+
+	// Лабораторная работа №6. Тесты.
 	try
 	{
-		if (test4_multiset_complex()) cout << "multiset empty!" << endl;
+		if (test_divide())
+			cout << "~~Test1 completed successfully!" << endl;
 		else
-			throw exception("multiset is not empty!!");
+			throw exception("~~Test1 failed!!!");
 	}
 	catch (const exception& ex)
 	{
 		cout << ex.what() << endl;
 	}
+
+	test_compare_with();
+	test_pop_front_back();
+	test_insert();
+	test_removeAt();
+	test_index();
+	test_print_empty_list();
 
 	cin.get();
 	return 0;

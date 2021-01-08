@@ -154,6 +154,7 @@
     <ClInclude Include="Test_for_4lab.h" />
     <ClInclude Include="AnotherRep.h" />
     <ClInclude Include="Test_for_5lab.h" />
+    <ClInclude Include="Test_for_6lab.h" />
     <ClInclude Include="Test_for_8lab.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

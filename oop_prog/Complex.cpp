@@ -107,12 +107,16 @@ void Complex::divide(const Complex& first, const Complex& second)// Делени
 		{
 			this->valid = (first.valid * second.valid + first.image * second.image) / (pow(second.valid, 2) + pow(second.image, 2));
 			this->image = (first.image * second.valid - first.valid * second.image) / (pow(second.valid, 2) + pow(second.image, 2));
+			this->to_StrExpression();
 		}
+		
 	}
 	catch (const exception& ex)
 	{
 		cout << ex.what() << endl;
 	}
+
+	
 }
 
 void Complex::multiply(const Complex& first, const Complex& second)// Умножение.
