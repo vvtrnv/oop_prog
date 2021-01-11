@@ -8,6 +8,7 @@
 #include "Test_for_5lab.h"
 #include "Test_for_8lab.h"
 #include "Test_for_6lab.h"
+#include "Test_for_7lab.h"
 
 using namespace std;
 
@@ -122,6 +123,13 @@ int main()
 	//test_index();
 	//test_print_empty_list();
 
+
+	// Лабароторная работа №7. Тесты.
+	//lab7_test1_int();
+	lab7_test2_Complex();
+	
+	
+	
 	cin.get();
 	return 0;
 }
