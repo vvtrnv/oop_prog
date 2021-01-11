@@ -103,24 +103,24 @@ int main()
 
 
 	// Лабораторная работа №6. Тесты.
-	try
-	{
-		if (test_divide())
-			cout << "~~Test1 completed successfully!" << endl;
-		else
-			throw exception("~~Test1 failed!!!");
-	}
-	catch (const exception& ex)
-	{
-		cout << ex.what() << endl;
-	}
+	//try
+	//{
+	//	if (test_divide())
+	//		cout << "~~Test1 completed successfully!" << endl;
+	//	else
+	//		throw exception("~~Test1 failed!!!");
+	//}
+	//catch (const exception& ex)
+	//{
+	//	cout << ex.what() << endl;
+	//}
 
-	test_compare_with();
-	test_pop_front_back();
-	test_insert();
-	test_removeAt();
-	test_index();
-	test_print_empty_list();
+	//test_compare_with();
+	//test_pop_front_back();
+	//test_insert();
+	//test_removeAt();
+	//test_index();
+	//test_print_empty_list();
 
 	cin.get();
 	return 0;
