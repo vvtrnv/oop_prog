@@ -1,17 +1,17 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include "Complex.h"
 #include "templateList.h"
 
 
-bool compare_complex(const char* expected[], templateList<Complex>& real); // Сравнение результатов для объектов класса Complex.
-template<class T> bool compare_expected_real(T expected[], templateList<T>& real); // Сравнение результатов для стандартных типов int, float, double...
+bool compare_complex(const char* expected[], templateList<Complex>& real); // РЎСЂР°РІРЅРµРЅРёРµ СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ РґР»СЏ РѕР±СЉРµРєС‚РѕРІ РєР»Р°СЃСЃР° Complex.
+template<class T> bool compare_expected_real(T expected[], templateList<T>& real); // РЎСЂР°РІРЅРµРЅРёРµ СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ РґР»СЏ СЃС‚Р°РЅРґР°СЂС‚РЅС‹С… С‚РёРїРѕРІ int, float, double...
 
 void lab7_test_1_1_INT()
 {
-	// Тест 1.1.
-	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~Тест 1 для типа данных INT~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-	cout << "~~~Тест 1.1. Добавление элементов и вывод на экран, а так же проверка обращения по индексу~~~" << endl;
+	// РўРµСЃС‚ 1.1.
+	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~РўРµСЃС‚ 1 РґР»СЏ С‚РёРїР° РґР°РЅРЅС‹С… INT~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+	cout << "~~~РўРµСЃС‚ 1.1. Р”РѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ Рё РІС‹РІРѕРґ РЅР° СЌРєСЂР°РЅ, Р° С‚Р°Рє Р¶Рµ РїСЂРѕРІРµСЂРєР° РѕР±СЂР°С‰РµРЅРёСЏ РїРѕ РёРЅРґРµРєСЃСѓ~~~" << endl;
 	templateList<int> typeInt;
 	const int SIZE = 10;
 	for (int i = 0; i < SIZE; i++)
@@ -25,7 +25,7 @@ void lab7_test_1_1_INT()
 	}
 	cout << endl;
 	
-	// Проверка результатов.
+	// РџСЂРѕРІРµСЂРєР° СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ.
 	int expected[SIZE]
 	{
 		1,
@@ -40,16 +40,16 @@ void lab7_test_1_1_INT()
 		10
 	};
 	if (compare_expected_real(expected, typeInt))
-		cout << "~Тест 1.1. Пройден!~" << endl;
+		cout << "~РўРµСЃС‚ 1.1. РџСЂРѕР№РґРµРЅ!~" << endl;
 	else
-		cout << "~Тест 1.1. Не пройден!!!!~" << endl;
+		cout << "~РўРµСЃС‚ 1.1. РќРµ РїСЂРѕР№РґРµРЅ!!!!~" << endl;
 
 	cout << endl << endl;
 }
 
 void lab7_test_1_2_INT()
 {
-	cout << "~~~Тест 1.2. Удаление первого и последнего элемента~~~" << endl;
+	cout << "~~~РўРµСЃС‚ 1.2. РЈРґР°Р»РµРЅРёРµ РїРµСЂРІРѕРіРѕ Рё РїРѕСЃР»РµРґРЅРµРіРѕ СЌР»РµРјРµРЅС‚Р°~~~" << endl;
 	templateList<int> typeInt;
 	const int SIZE = 10;
 	for (int i = 0; i < SIZE; i++)
@@ -63,7 +63,7 @@ void lab7_test_1_2_INT()
 	}
 	cout << endl;
 
-	//Удаляем последний элемент и первый элемент.
+	//РЈРґР°Р»СЏРµРј РїРѕСЃР»РµРґРЅРёР№ СЌР»РµРјРµРЅС‚ Рё РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚.
 	typeInt.pop_front();
 	typeInt.pop_back();
 	
@@ -73,7 +73,7 @@ void lab7_test_1_2_INT()
 	}
 	cout << endl;
 
-	// Проверка
+	// РџСЂРѕРІРµСЂРєР°
 	int expected[SIZE - 2]
 	{
 		2,
@@ -86,16 +86,16 @@ void lab7_test_1_2_INT()
 		9
 	};
 	if (compare_expected_real(expected, typeInt))
-		cout << "~Тест 1.2. Пройден!~" << endl;
+		cout << "~РўРµСЃС‚ 1.2. РџСЂРѕР№РґРµРЅ!~" << endl;
 	else
-		cout << "~Тест 1.2. Не пройден!!!!~" << endl;
+		cout << "~РўРµСЃС‚ 1.2. РќРµ РїСЂРѕР№РґРµРЅ!!!!~" << endl;
 
 	cout << endl << endl;
 }
 
 void lab7_test_1_3_INT()
 {
-	cout << "~~~Тест 1.3. Проверка функции push_front() и insert()~~~" << endl;
+	cout << "~~~РўРµСЃС‚ 1.3. РџСЂРѕРІРµСЂРєР° С„СѓРЅРєС†РёРё push_front() Рё insert()~~~" << endl;
 	templateList<int> typeInt;
 	const int SIZE = 10;
 	for (int i = 0; i < SIZE; i++)
@@ -109,7 +109,7 @@ void lab7_test_1_3_INT()
 	}
 	cout << endl;
 
-	// Добавляем новый элемент по индексу 5.
+	// Р”РѕР±Р°РІР»СЏРµРј РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚ РїРѕ РёРЅРґРµРєСЃСѓ 5.
 	typeInt.insert(11111, 5);
 
 	for (int i = 0; i < typeInt.GetSize(); i++)
@@ -118,7 +118,7 @@ void lab7_test_1_3_INT()
 	}
 	cout << endl;
 
-	// Проверка.
+	// РџСЂРѕРІРµСЂРєР°.
 	int expected[SIZE + 1]
 	{
 		10,
@@ -134,14 +134,14 @@ void lab7_test_1_3_INT()
 		1
 	};
 	if (compare_expected_real(expected, typeInt))
-		cout << "~Тест 1.3. Пройден!~" << endl;
+		cout << "~РўРµСЃС‚ 1.3. РџСЂРѕР№РґРµРЅ!~" << endl;
 	else
-		cout << "~Тест 1.3. Не пройден!!!!~" << endl;
+		cout << "~РўРµСЃС‚ 1.3. РќРµ РїСЂРѕР№РґРµРЅ!!!!~" << endl;
 }
 
 void lab7_test_1_4_INT()
 {
-	cout << "~~~Тест 1.4. Проверка удаления по индексу 5~~~" << endl;
+	cout << "~~~РўРµСЃС‚ 1.4. РџСЂРѕРІРµСЂРєР° СѓРґР°Р»РµРЅРёСЏ РїРѕ РёРЅРґРµРєСЃСѓ 5~~~" << endl;
 	templateList<int> typeInt;
 	const int SIZE = 10;
 	for (int i = 0; i < SIZE; i++)
@@ -155,7 +155,7 @@ void lab7_test_1_4_INT()
 	}
 	cout << endl;
 
-	// Удаляем элемент по индексу 5
+	// РЈРґР°Р»СЏРµРј СЌР»РµРјРµРЅС‚ РїРѕ РёРЅРґРµРєСЃСѓ 5
 	typeInt.removeAt(5);
 
 	for (int i = 0; i < typeInt.GetSize(); i++)
@@ -164,7 +164,7 @@ void lab7_test_1_4_INT()
 	}
 	cout << endl;
 
-	// Проверка.
+	// РџСЂРѕРІРµСЂРєР°.
 	int expected[SIZE - 1]
 	{
 		1,
@@ -178,15 +178,15 @@ void lab7_test_1_4_INT()
 		10
 	};
 	if (compare_expected_real(expected, typeInt))
-		cout << "~Тест 1.4. Пройден!~" << endl;
+		cout << "~РўРµСЃС‚ 1.4. РџСЂРѕР№РґРµРЅ!~" << endl;
 	else
-		cout << "~Тест 1.4. Не пройден!!!!~" << endl;
+		cout << "~РўРµСЃС‚ 1.4. РќРµ РїСЂРѕР№РґРµРЅ!!!!~" << endl;
 }
 
 void lab7_test_2_1_COMPLEX()
 {
-	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~Тест 2 для типа данных COMPLEX~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
-	cout << "~~~Тест 2.1. Добавление элементов и вывод на экран, а так же проверка обращения по индексу~~~" << endl;
+	cout << "~~~~~~~~~~~~~~~~~~~~~~~~~РўРµСЃС‚ 2 РґР»СЏ С‚РёРїР° РґР°РЅРЅС‹С… COMPLEX~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+	cout << "~~~РўРµСЃС‚ 2.1. Р”РѕР±Р°РІР»РµРЅРёРµ СЌР»РµРјРµРЅС‚РѕРІ Рё РІС‹РІРѕРґ РЅР° СЌРєСЂР°РЅ, Р° С‚Р°Рє Р¶Рµ РїСЂРѕРІРµСЂРєР° РѕР±СЂР°С‰РµРЅРёСЏ РїРѕ РёРЅРґРµРєСЃСѓ~~~" << endl;
 	templateList<Complex> typeComplex;
 	const int SIZE = 5;
 
@@ -209,8 +209,8 @@ void lab7_test_2_1_COMPLEX()
 		cout << typeComplex[i];
 	}
 
-	// Проверка.
-	cout << "Проверка:" << endl;
+	// РџСЂРѕРІРµСЂРєР°.
+	cout << "РџСЂРѕРІРµСЂРєР°:" << endl;
 	const char* expected[SIZE]
 	{
 		"(1.000000 + 2.000000 i)",
@@ -220,16 +220,16 @@ void lab7_test_2_1_COMPLEX()
 		"(1998.000000 + 2020.000000 i)"
 	};
 	if (compare_complex(expected, typeComplex))
-		cout << "~Тест 2.1. Пройден!~" << endl;
+		cout << "~РўРµСЃС‚ 2.1. РџСЂРѕР№РґРµРЅ!~" << endl;
 	else
-		cout << "~Тест 2.1. Не пройден!!!!~" << endl;
+		cout << "~РўРµСЃС‚ 2.1. РќРµ РїСЂРѕР№РґРµРЅ!!!!~" << endl;
 
 	cout << endl << endl;
 }
 
 void lab7_test_2_2_COMPLEX()
 {
-	cout << "~~~Тест 2.2. Удаление первого и последнего элемента~~~" << endl;
+	cout << "~~~РўРµСЃС‚ 2.2. РЈРґР°Р»РµРЅРёРµ РїРµСЂРІРѕРіРѕ Рё РїРѕСЃР»РµРґРЅРµРіРѕ СЌР»РµРјРµРЅС‚Р°~~~" << endl;
 	templateList<Complex> typeComplex;
 	const int SIZE = 5;
 	Complex arr[SIZE]
@@ -251,8 +251,8 @@ void lab7_test_2_2_COMPLEX()
 		cout << typeComplex[i];
 	}
 
-	//Удаляем последний элемент и первый элемент.
-	cout << "\nУдаляем первый и последний элемент:" << endl;
+	//РЈРґР°Р»СЏРµРј РїРѕСЃР»РµРґРЅРёР№ СЌР»РµРјРµРЅС‚ Рё РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚.
+	cout << "\nРЈРґР°Р»СЏРµРј РїРµСЂРІС‹Р№ Рё РїРѕСЃР»РµРґРЅРёР№ СЌР»РµРјРµРЅС‚:" << endl;
 	typeComplex.pop_front();
 	typeComplex.pop_back();
 
@@ -262,8 +262,8 @@ void lab7_test_2_2_COMPLEX()
 	}
 	cout << endl;
 
-	// Проверка
-	cout << "Проверка:" << endl;
+	// РџСЂРѕРІРµСЂРєР°
+	cout << "РџСЂРѕРІРµСЂРєР°:" << endl;
 	const char* expected[SIZE-2]
 	{
 		"(22.000000 + 66.000000 i)",
@@ -271,16 +271,16 @@ void lab7_test_2_2_COMPLEX()
 		"(777.000000 + 223.000000 i)",
 	};
 	if (compare_complex(expected, typeComplex))
-		cout << "~Тест 2.2. Пройден!~" << endl;
+		cout << "~РўРµСЃС‚ 2.2. РџСЂРѕР№РґРµРЅ!~" << endl;
 	else
-		cout << "~Тест 2.2. Не пройден!!!!~" << endl;
+		cout << "~РўРµСЃС‚ 2.2. РќРµ РїСЂРѕР№РґРµРЅ!!!!~" << endl;
 
 	cout << endl << endl;
 }
 
 void lab7_test_2_3_COMPLEX()
 {
-	cout << "~~~Тест 2.3. Проверка функции push_front() и insert()~~~" << endl;
+	cout << "~~~РўРµСЃС‚ 2.3. РџСЂРѕРІРµСЂРєР° С„СѓРЅРєС†РёРё push_front() Рё insert()~~~" << endl;
 	templateList<Complex> typeComplex;
 	const int SIZE = 5;
 	Complex arr[SIZE]
@@ -302,8 +302,8 @@ void lab7_test_2_3_COMPLEX()
 		cout << typeComplex[i];
 	}
 
-	// Добавляем элемент по индексу 3.
-	cout << "\nДобавляем элемент по индексу 3:" << endl;
+	// Р”РѕР±Р°РІР»СЏРµРј СЌР»РµРјРµРЅС‚ РїРѕ РёРЅРґРµРєСЃСѓ 3.
+	cout << "\nР”РѕР±Р°РІР»СЏРµРј СЌР»РµРјРµРЅС‚ РїРѕ РёРЅРґРµРєСЃСѓ 3:" << endl;
 	Complex toAdd(5555, 6666);
 	typeComplex.insert(toAdd, 3);
 
@@ -313,8 +313,8 @@ void lab7_test_2_3_COMPLEX()
 	}
 	cout << endl;
 
-	//Проверка.
-	cout << "Проверка:" << endl;
+	//РџСЂРѕРІРµСЂРєР°.
+	cout << "РџСЂРѕРІРµСЂРєР°:" << endl;
 	const char* expected[SIZE + 1]
 	{
 		"(1998.000000 + 2020.000000 i)",
@@ -325,16 +325,16 @@ void lab7_test_2_3_COMPLEX()
 		"(1.000000 + 2.000000 i)",
 	};
 	if (compare_complex(expected, typeComplex))
-		cout << "~Тест 2.3. Пройден!~" << endl;
+		cout << "~РўРµСЃС‚ 2.3. РџСЂРѕР№РґРµРЅ!~" << endl;
 	else
-		cout << "~Тест 2.3. Не пройден!!!!~" << endl;
+		cout << "~РўРµСЃС‚ 2.3. РќРµ РїСЂРѕР№РґРµРЅ!!!!~" << endl;
 
 	cout << endl << endl; 
 }
 
 void lab7_test_2_4_COMPLEX()
 {
-	cout << "~~~Тест 2.4. Проверка удаления по индексу 5~~~" << endl;
+	cout << "~~~РўРµСЃС‚ 2.4. РџСЂРѕРІРµСЂРєР° СѓРґР°Р»РµРЅРёСЏ РїРѕ РёРЅРґРµРєСЃСѓ 5~~~" << endl;
 	templateList<Complex> typeComplex;
 	const int SIZE = 5;
 	Complex arr[SIZE]
@@ -356,8 +356,8 @@ void lab7_test_2_4_COMPLEX()
 		cout << typeComplex[i];
 	}
 
-	// Удаляем элемент.
-	cout << "\nУдаляем элемент по индексу 2" << endl;
+	// РЈРґР°Р»СЏРµРј СЌР»РµРјРµРЅС‚.
+	cout << "\nРЈРґР°Р»СЏРµРј СЌР»РµРјРµРЅС‚ РїРѕ РёРЅРґРµРєСЃСѓ 2" << endl;
 	typeComplex.removeAt(2);
 
 	for (int i = 0; i < typeComplex.GetSize(); i++)
@@ -366,8 +366,8 @@ void lab7_test_2_4_COMPLEX()
 	}
 	cout << endl;
 
-	//Проверка.
-	cout << "Проверка:" << endl;
+	//РџСЂРѕРІРµСЂРєР°.
+	cout << "РџСЂРѕРІРµСЂРєР°:" << endl;
 	const char* expected[SIZE + 1]
 	{
 		"(1998.000000 + 2020.000000 i)",
@@ -376,15 +376,15 @@ void lab7_test_2_4_COMPLEX()
 		"(1.000000 + 2.000000 i)",
 	};
 	if (compare_complex(expected, typeComplex))
-		cout << "~Тест 2.4. Пройден!~" << endl;
+		cout << "~РўРµСЃС‚ 2.4. РџСЂРѕР№РґРµРЅ!~" << endl;
 	else
-		cout << "~Тест 2.4. Не пройден!!!!~" << endl;
+		cout << "~РўРµСЃС‚ 2.4. РќРµ РїСЂРѕР№РґРµРЅ!!!!~" << endl;
 
 	cout << endl << endl;
 }
 
 
-//-------------- Вспомогательные функции. --------------//
+//-------------- Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Рµ С„СѓРЅРєС†РёРё. --------------//
 
 template<class T>
 bool compare_expected_real(T expected[], templateList<T>& real)
@@ -403,8 +403,8 @@ bool compare_complex(const char* expected[], templateList<Complex>& real)
 	const int len = real.GetSize();
 	for (int i = 0; i < len; i++)
 	{
-		cout << "Ожидаемое значение:\t" << expected[i] << endl;
-		cout << "Реальное значение:\t" << real[i].to_String() << endl << endl;
+		cout << "РћР¶РёРґР°РµРјРѕРµ Р·РЅР°С‡РµРЅРёРµ:\t" << expected[i] << endl;
+		cout << "Р РµР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ:\t" << real[i].to_String() << endl << endl;
 
 		if (strcmp(expected[i], real[i].to_String()) != 0) return false;
 	}
