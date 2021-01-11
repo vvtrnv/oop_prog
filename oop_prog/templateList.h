@@ -2,13 +2,6 @@
 #include <iostream>
 using namespace std;
 
-
-/*
-* односвязный список
-* реализация
-*/
-
-
 template<typename T>
 class templateList
 {
@@ -42,9 +35,6 @@ public:
 
 	//удаление последнего элемента в списке
 	void pop_back();
-
-	// Получить размер списка.
-	int get_Size() { return this->size; }
 
 private:
 
