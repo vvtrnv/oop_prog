@@ -64,8 +64,8 @@ void lab7_test_1_2_INT()
 	cout << endl;
 
 	//Удаляем последний элемент и первый элемент.
-	typeInt.pop_front();
-	typeInt.pop_back();
+	cout << "Удалённый элемент:\t" << typeInt.pop_front() << endl;
+//	cout << "Удалённый элемент:\t" << typeInt.pop_back() << endl;
 	
 	for (int i = 0; i < typeInt.GetSize(); i++)
 	{
@@ -253,7 +253,7 @@ void lab7_test_2_2_COMPLEX()
 
 	//Удаляем последний элемент и первый элемент.
 	cout << "\nУдаляем первый и последний элемент:" << endl;
-	typeComplex.pop_front();
+	cout << typeComplex.pop_front();
 	typeComplex.pop_back();
 
 	for (int i = 0; i < typeComplex.GetSize(); i++)

@@ -10,7 +10,8 @@ public:
 	~templateList();
 
 	//удаление первого элемента в списке
-	void pop_front();
+	T pop_front();
+	
 
 	//добавление элемента в конец списка
 	void push_back(T data);
@@ -24,6 +25,9 @@ public:
 	// перегруженный оператор [] 
 	T& operator[](const int index);
 
+	// перегруженный оператор <<
+	friend ostream& operator<<(ostream& os, Complex& obj);
+
 	//добавление элемента в начало списка
 	void push_front(T data);
 
@@ -31,7 +35,7 @@ public:
 	void insert(T data, int index);
 
 	//удаление элемента в списке по указанному индексу
-	void removeAt(int index);
+	T removeAt(int index);
 
 	//удаление последнего элемента в списке
 	void pop_back();
@@ -74,7 +78,7 @@ templateList<T>::~templateList()
 
 
 template<typename T>
-void templateList<T>::pop_front()
+T templateList<T>::pop_front()
 {
 	try
 	{
@@ -84,10 +88,10 @@ void templateList<T>::pop_front()
 		Node<T>* temp = head;
 
 		head = head->pNext;
-
-		delete temp;
-
 		size--;
+		T rtrn = temp->data;
+		delete temp;
+		return rtrn;
 	}
 	catch (const exception& ex)
 	{
@@ -155,6 +159,11 @@ T& templateList<T>::operator[](const int index)
 	}
 }
 
+ostream& operator<<(ostream& os, Complex& obj)
+{
+	os << obj.expression;
+}
+
 template<typename T>
 void templateList<T>::push_front(T data)
 {
@@ -192,7 +201,7 @@ void templateList<T>::insert(T nData, int index)
 }
 
 template<typename T>
-void templateList<T>::removeAt(int index)
+T templateList<T>::removeAt(int index)
 {
 	try
 	{
@@ -209,6 +218,7 @@ void templateList<T>::removeAt(int index)
 			}
 
 			Node<T>* toDelete = previous->pNext;
+			T rtrn = toDelete->data;
 			previous->pNext = toDelete->pNext;
 			delete toDelete;
 			size--;
@@ -236,3 +246,5 @@ void templateList<T>::pop_back()
 	}
 	
 }
+
+
